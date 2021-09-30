@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import style from "./BoshSahifaDavomi.module.css";
-import { ButtonWrapper } from "./StyleBoshSahifa";
 import school1 from "../img/school1.jpg";
 import ustoz1 from "../img/ustoz1.jpg";
 import ustoz2 from "../img/ustoz2.jpg";

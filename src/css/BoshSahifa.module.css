@@ -1,0 +1,238 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+.header{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/school1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1 !important;
+}
+.header h1{
+  color:white;
+  font-size: 55px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 150px;
+}
+.heading p{
+  color:white;
+  font-weight: 800;
+}
+.tadbirlar{
+  text-align: center !important;
+  padding-top: 100px;
+}
+.tadbirCard{
+  width: 31% !important;
+  height: 500px;
+  margin:1% !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 60px !important;
+}
+.video{
+  text-align: center;
+  padding-top: 80px;
+}
+.new{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  font-size: 16px;
+  color: #666A6F;
+  margin-bottom: 20px;
+}
+.new p{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.new p:hover{
+  color: #1EB2A6;
+}
+.new_img{
+  width: 22%;
+  height: 100%;
+  transform: translate(0, 15%)
+}
+.new_img img{
+  border-radius: 5px;
+  width: 80%;
+  height: 85%;
+  object-fit: cover;
+}
+.new_text{
+  width: 78%;
+}
+.video h2{
+  display: inline-block;
+  position: relative;
+}
+.video h2::after{
+  content: '';
+  position: absolute;
+  top: 140%;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background-color:#1EB2A6
+}
+.tadbirlar h2{
+  display: inline-block;
+  position: relative;
+}
+.tadbirlar h2::after{
+  content: '';
+  position: absolute;
+  top: 140%;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background-color:#1EB2A6
+}
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+.hamkorlar{
+  margin-top: 60px;
+  text-align: center;
+}
+.hamkor{
+  display: flex !important;
+  justify-content: center !important;
+  align-items:center !important;
+  flex-direction: column !important;
+  padding: 20px !important;
+}
+.hamkor p{
+  color:rgba(0, 0, 0, 0.6)
+}
+.imgHamkor{
+  width: 100px;
+  height: 100px;
+  border:1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hamkorlar h2{
+  display: inline-block;
+  position: relative;
+}
+.hamkorlar h2::after{
+  content: '';
+  position: absolute;
+  top: 140%;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background-color:#1EB2A6
+}
+.form{
+  padding:30px !important;
+}
+.form h2{
+  display: inline-block;
+  position: relative;
+  font-size: 25px;
+}
+.form h2::after{
+  content: '';
+  position: absolute;
+  top: 140%;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background-color:#1EB2A6
+}
+.address{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 50px !important;
+}
+.address div{
+  width: 20% !important;
+}
+.video1{
+   width: 100%;
+   height: 440px !important;
+   padding-top: 70px;
+}
+@media screen and (max-width:400px) {
+  .heading{
+  width: 90%;
+  }
+  .heading p{
+      z-index: 1 !important; 
+  }
+  .tadbirCard{
+      width: 90% !important;
+      margin:5% !important;
+  }
+  .contact{
+      width: 90%;
+      margin-left: 5%;
+  }
+  .address{
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px !important;
+  }
+  .address div{
+      width: 100% !important;
+  }
+
+}
+@media screen and (max-width:768px) {
+  .heading{
+  width: 90%;
+  }
+  .heading p{
+      z-index: 1 !important; 
+  }
+  .tadbirCard{
+      width: 90% !important;
+      margin:5% !important;
+  }
+
+}
+@media screen and (max-width:992px) {
+  .heading{
+  width: 90%;
+  }
+  .heading p{
+      z-index: 1 !important; 
+  }
+  .tadbirCard{
+      width: 90% !important;
+      margin:5% !important;
+  }
+
+}
+@media screen and (max-width:1200px) {
+  .heading{
+  width: 350px;
+  }
+  .heading p{
+      z-index: 1 !important; 
+  }
+  .tadbirCard{
+      width: 98% !important;
+      margin:20px !important;
+  }
+  .tadbirlar{
+      margin-bottom: 100px !important;
+  }
+
+}
