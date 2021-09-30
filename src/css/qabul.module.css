@@ -1,0 +1,484 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerh{
+    position: absolute;
+    top: 15% !important;
+    left: 50%;
+    z-index: 111111 !important
+}
+.headerh h1{
+    color:white;
+    font-size: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 150px;
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    background-color: #F8F8F8;
+    display: flex;
+    align-items: center;
+}
+
+.body img{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: 75%;
+}
+.tavsilot_text{
+  
+    padding: 0px 40px;
+}
+.tavsilot_text h1{
+    margin-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #22B4A8;
+}
+.tavsilot_text p{
+    color: #A2A2A2;
+    font-size: 18px;
+    
+}
+.body2{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    background-color: #A5C9CF;
+}
+.row{
+    margin: 0px 5px;
+
+}
+.top1{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top2{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: #000;
+    font-weight: 600;
+}
+
+.top1 img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+.bottom{
+    height: 50%;
+    color: #A2A2A2;
+    font-size: 17px;
+    padding: 0px 30px;
+}
+.body3{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 70px 0px;
+
+}
+.jarayon{
+    width: 70%;
+    height: auto;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+.title{
+    padding: 20px;
+    width: 100%;
+    border-bottom:1px solid #DFDFDF ;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+.title:hover{
+    color: #1EB2A6 !important;
+}
+.title:hover .title h4{
+    color: #1EB2A6 !important;
+}
+.content{
+    padding: 20px;
+    width: 100%;
+    border-bottom:1px solid #DFDFDF ;
+    color: #ACACAC;
+    font-size: 18px;
+    display: none;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0,1,0,1);
+}
+
+.body4{
+    width: 100%;
+    height: 300px;
+    background-image: url(../img/rasm5.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+}
+.malumot{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+.info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+}
+.text h3{
+    font-weight: 600;
+ 
+}
+.text p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.icon{
+  margin-right: 30px;
+}
+.icon img{
+    width: 70px;
+    height: 70px;
+    color: #fff;
+}
+ .body5{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    /* align-items: center; */
+}
+.hujjat_img{
+    background-image: url(../img/rasm9.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hujjat_text{
+    padding: 0px 40px;
+    width: 100%;
+}
+.hujjat_text h1{
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: left;
+}
+.hujjat_text h5{
+    color: #ACACAC;
+}
+.hujjat_text img{
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    margin-right: 15px;
+}
+.hujjat_text p{
+    color: #22B4A8;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.hujjat_list{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin: 20px 0px;
+    background-color: #fff;
+    transition: all 0.3s;
+    border: 2px solid #fff;
+    padding: 10px 10px ;
+}
+.hujjat_list:hover{
+    border: 2px solid #1EB2A6;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+
+
+@media screen and (max-width:400px){
+    .body{
+        height: auto;
+    }
+    .headerh{
+        display: none !important;
+     }
+    .body img{
+        margin: 20px 0px;
+    }
+    .tavsilot_text{
+        padding: 10px 10px;
+    }
+    .tavsilot_text h1{
+        margin: 20px 0px;
+    }
+    .body2{
+        height: auto !important;
+        padding: 0px 0px;
+    }
+    .row1{
+        height: auto !important;
+        margin: 5px 0px;
+    }
+    .row{
+        height: auto !important;
+        margin: 0px;
+        padding: 5px 0px;
+    }
+    .col{
+        height: auto !important;
+    }
+    .jarayon{
+        width: 95%;
+    }
+    .body4{
+        height: auto;
+        background-position:center;
+        padding: 10px 0px;
+        margin-top: 20px;
+    }
+    .malumot{
+        display: block;
+        align-items: center;
+    }
+    .info{
+        display: flex;
+        justify-content: left !important;   
+        align-items: center;
+    }
+    .text h3{
+        font-weight: 600;  
+    }
+    .text p{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .icon{
+      margin-right: 20px;
+    }
+    .icon img{
+        width: 40px;
+        height: 40px;
+    }
+    .hujjat{
+        margin: 50px 0px;
+        height: auto;
+    }
+    .body5{
+  
+        height: auto !important;
+
+    }
+    .hujjat_text{
+        padding: 0px 10px;
+        height: max-content !important;
+    }
+    .hujjat_text h5{
+        font-size: 16px !important;
+    }
+    .hujjat_text img{
+        width: 30px;
+        height: 30px;
+    }
+    .hujjat_text p{
+        font-size: 18px;
+    }
+    .hujjat_list{
+        height: auto;
+    }
+}
+
+@media screen and (max-width:767px){
+    .body{
+        height: auto;
+    }
+    .headerh{
+        display: none !important;
+     }
+    .body img{
+        margin: 20px 0px;
+    }
+    .tavsilot_text{
+        padding: 10px 10px;
+    }
+    .tavsilot_text h1{
+        margin: 20px 0px;
+    }
+    .body2{
+        height: 120vh !important;
+        padding: 0px 0px;
+    }
+    .row1{
+        height: auto !important;
+        margin: 5px 0px;
+    }
+    .row{
+        height: auto !important;
+        margin: 0px;
+        padding: 5px 0px;
+    }
+    .col{
+        height: 100% !important;
+    }
+    .jarayon{
+        width: 95%;
+    }
+    .body4{
+        height: auto;
+        background-position:center;
+        padding: 10px 0px;
+        margin-top: 20px;
+    }
+    .malumot{
+        display: block;
+        align-items: center;
+    }
+    .info{
+        display: flex;
+        justify-content: left !important;   
+        align-items: center;
+    }
+    .text h3{
+        font-weight: 600;  
+    }
+    .text p{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .icon{
+      margin-right: 20px;
+    }
+    .icon img{
+        width: 40px;
+        height: 40px;
+    }
+    .hujjat_text{
+        padding: 0px 10px;
+    }
+    .hujjat_text h5{
+        font-size: 18px !important;
+    }
+    .hujjat_text img{
+        width: 30px;
+        height: 30px;
+    }
+    .hujjat_text p{
+        font-size: 18px;
+    }
+    .hujjat_list{
+        height: auto;
+    }
+}
+@media screen and (max-width:992px){
+    .body{
+        height: auto;
+    }
+    .headerh{
+        color:white;
+        top: 70vh !important;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 45px !important;
+    }
+    .tavsilot_text{
+        padding: 10px 10px;
+    }
+    .tavsilot_text h1{
+        margin: 20px 0px;
+    }
+    .body2{
+        height: 60vh;
+        padding: 20px 0px;
+    }
+    .row1{
+        /* height: auto; */
+        margin: 5px 0px;
+    }
+    .row{
+        /* height: auto; */
+        margin: 0px;
+        padding: 5px 0px;
+    }
+    .col{
+        height: 100% !important;
+    }
+    .jarayon{
+        width: 95%;
+    }
+    .body4{
+        height: auto;
+        padding: 10px 0px;
+        margin-top: 20px;
+    }
+    .info{
+        display: flex;
+        justify-content: center;   
+        align-items: center;
+
+    }
+    .text h3{
+        font-weight: 600;  
+        font-size: 20px;
+    }
+    .text p{
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .icon{
+      margin-right: 20px;
+    }
+    .icon img{
+        width: 40px;
+        height: 40px;
+    }
+    .body5{
+        height: 60vh !important;
+    }
+    .hujjat_text{
+        padding: 0px 10px;
+    }
+    .hujjat_text h5{
+        font-size: 18px !important;
+    }
+    .hujjat_text img{
+        width: 30px;
+        height: 30px;
+    }
+    .hujjat_text p{
+        font-size: 18px;
+    }
+    .hujjat_list{
+        height: auto;
+    }
+}
