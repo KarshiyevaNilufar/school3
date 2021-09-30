@@ -25,6 +25,9 @@ import flagRU from "../img/flagRU.png";
 import bg1t from "../img/bg1t.jpg";
 import bg2t from "../img/bg2t.jpg";
 import bg3t from "../img/bg3t.jpg";
+import { getEvents } from "../host/Config";
+import {BiTime} from 'react-icons/bi'
+import {HiLocationMarker} from 'react-icons/hi'
 import "../App.css";
 import { Tooltip, Carousel } from "antd";
 import { Link, NavLink } from "react-router-dom";
@@ -79,6 +82,7 @@ export default class BoshSahifa extends Component {
     id: 0,
     school: null,
     clock: "00 : 00 : 00",
+    events: [],
   };
   getSchool = () => {
     axios.get(`${url}/school-by-admin/${Global.user}`).then((res) => {
@@ -116,7 +120,27 @@ export default class BoshSahifa extends Component {
         console.log(err);
       });
   };
-
+  getEvents = () => {
+    getEvents()
+      .then((res) => {
+        console.log(res.data);
+        if (window.location.href.indexOf("id=") === -1) {
+          this.setState({
+            events: res.data,
+          });
+        } else {
+          this.setState({
+            events: res.data,
+            id: window.location.href.slice(
+              window.location.href.indexOf("=") + 1
+            ),
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   componentDidMount() {
     this.getNews();
     this.getSchool();
@@ -128,6 +152,7 @@ export default class BoshSahifa extends Component {
     setInterval(() => {
       this.setState({ clock: Clock() });
     }, 1000);
+    this.getEvents();
   }
   render() {
     const props = {
@@ -218,57 +243,34 @@ export default class BoshSahifa extends Component {
                     className={styles.video1}
                   />
                        </Col>
-                       <Col lg={6}>
-                           <h2>So'nggi yangiliklar</h2>
-                           <div className={styles.four} style={{textAlign:'left',paddingTop:'20px'}}>
-                             
-                               <div className={styles.new} style={{marginTop:'40px'}}>
-                                   <div className={styles.new_img}><img src={school1}/></div>
-                                   <div className={styles.new_text}>
-                                       <div className={styles.meta}>
-                                           <div style={{cursor:"pointer"}}><BiCalendar size="14px" color="#1eb2a6"/><span style={{fontSize:'14px', color: '#1eb2a6', fontWeight:'normal'}}>Jan. 18,2021</span></div>
-                                           <p>Maktabimizda yangi o'quv yili uchun qabul boshlandi.</p>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div className={styles.new}>
-                                   <div className={styles.new_img}><img src={school1}/></div>
-                                   <div className={styles.new_text}>
-                                       <div className={styles.meta}>
-                                           <div style={{cursor:"pointer"}}><BiCalendar size="14px" color="#1eb2a6"/><span style={{fontSize:'14px', color: '#1eb2a6', fontWeight:'normal'}}>Jan. 18,2021</span></div>
-                                           <p>Maktabimizda yangi o'quv yili </p>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div className={styles.new}>
-                                   <div className={styles.new_img}><img src={school1}/></div>
-                                   <div className={styles.new_text}>
-                                       <div className={styles.meta}>
-                                           <div style={{cursor:"pointer"}}><BiCalendar size="14px" color="#1eb2a6"/><span style={{fontSize:'14px', color: '#1eb2a6', fontWeight:'normal'}}>Jan. 18,2021</span></div>
-                                           <p>Maktabimizda yangi o'quv yili uchun qabul boshlandi.</p>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div className={styles.new}>
-                                   <div className={styles.new_img}><img src={school1}/></div>
-                                   <div className={styles.new_text}>
-                                       <div className={styles.meta}>
-                                           <div style={{cursor:"pointer"}}><BiCalendar size="14px" color="#1eb2a6"/><span style={{fontSize:'14px', color: '#1eb2a6', fontWeight:'normal'}}>Jan. 18,2021</span></div>
-                                           <p>Maktabimizda yangi o'quv yili uchun qabul boshlandi.</p>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div className={styles.new}>
-                                   <div className={styles.new_img}><img src={school1}/></div>
-                                   <div className={styles.new_text}>
-                                       <div className={styles.meta}>
-                                           <div style={{cursor:"pointer"}}><BiCalendar size="14px" color="#1eb2a6"/><span style={{fontSize:'14px', color: '#1eb2a6', fontWeight:'normal'}}>Jan. 18,2021</span></div>
-                                           <p>Maktabimizda yangi o'quv yili uchun qabul boshlandi.</p>
-                                       </div>
-                                   </div>
-                               </div>
-                               </div>
-                       </Col>
+                       <Col xs={12} sm={12} md={6} lg={6}>
+                       <h2>So'nggi yangiliklar</h2>
+                <div className={styles.four} style={{textAlign:'left',paddingTop:'70px'}}>
+                        {this.state.news.map((item, key) => {
+                          return key < 5 ? (
+                            <div className={styles.new}>
+                                     <div className={styles.new_img}><img src={item.image}/></div>
+                                     <div className={styles.new_text}>
+                                         <div className={styles.meta}>
+                                             <div style={{cursor:"pointer"}}><BiCalendar size="14px" color="#1eb2a6"/><span style={{fontSize:'14px', color: '#1eb2a6', fontWeight:'normal'}}> {item.published_time.substring(0, 10)}</span></div>
+                                             <p>{item.title}</p>
+                                         </div>
+                                     </div>
+                                 </div>
+                          ) : (
+                            ""
+                          );
+                        })}
+                  
+                
+
+                  <Link to={`/yangiliklar/`}>
+                    <button className={styles.buttoncha}>
+                      <span>Barchasini o'qish</span>
+                    </button>
+                  </Link>
+                  </div>
+                </Col>
                    </Row>
                </Container>
               </div>
@@ -276,42 +278,26 @@ export default class BoshSahifa extends Component {
                  <h2>So'nngi tadbirlar</h2>
                  <Container style={{padding:'0'}}>
                      <Row>
-                         <Col lg={4} md={6} sm={12} style={{padding:'0'}} className={styles.tadbirCard}>
+                     {this.state.events.map((item, key) => {
+              return key < 3 ? (  
+                
+                <Col lg={4} md={6} sm={12} style={{padding:'0'}} className={styles.tadbirCard}>
                          
-                      <div style={{height:'250px'}}>
-                          <img src={school1} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
-                      </div>
-                      <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
-                          <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>18 Jan. 2021</span>
-                          <h4 style={{marginTop:'20px'}}>Build your Dream Software & Engineering Career</h4>
-                          <p style={{color:'#9D9D9D',marginTop:'20px'}}>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                       </div>
-                  
-                         </Col>
-                         <Col lg={4} md={6} sm={12} style={{padding:'0'}} className={styles.tadbirCard}>
-                         
-                      <div style={{width:'100%',height:'250px'}}>
-                          <img src={school1} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
-                      </div>
-                      <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
-                          <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>18 Jan. 2021</span>
-                          <h4 style={{marginTop:'20px'}}>Build your Dream Software & Engineering Career</h4>
-                          <p style={{color:'#9D9D9D',marginTop:'20px'}}>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                       </div>
-                  
-                         </Col>
-                         <Col lg={4} md={6} sm={12} style={{padding:'0'}} className={styles.tadbirCard}>
-                         
-                      <div style={{width:'100%',height:'250px'}}>
-                          <img src={school1} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
-                      </div>
-                      <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
-                          <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>18 Jan. 2021</span>
-                          <h4 style={{marginTop:'20px'}}>Build your Dream Software & Engineering Career</h4>
-                          <p style={{color:'#9D9D9D',marginTop:'20px'}}>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                       </div>
-                  
-                         </Col>
+                <div style={{height:'250px'}}>
+                    <img src={item.image}  style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
+                </div>
+                <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
+                <h4 style={{marginTop:'20px'}}>{item.title}</h4>
+                    <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>{item.date}</span><br></br>
+                    <BiTime style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>{item.time}</span><br></br>
+                    <HiLocationMarker style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>{item.address}</span> 
+                 </div>
+            
+                   </Col>
+              ) : (
+                ""
+              );
+            })}
                      </Row>
                  </Container>
              </div>

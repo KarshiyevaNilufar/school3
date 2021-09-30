@@ -169,6 +169,19 @@
    height: 440px !important;
    padding-top: 70px;
 }
+.buttoncha{
+  display: block;
+  margin:20px auto !important;
+  padding:10px 30px;
+  background-color:#1EB2A6;
+  color:white;
+  border:1px solid #1EB2A6;
+}
+.buttoncha:hover{
+  background-color:white;
+  color:#1EB2A6;
+  border:1px solid #1EB2A6;
+}
 @media screen and (max-width:400px) {
   .heading{
   width: 90%;
