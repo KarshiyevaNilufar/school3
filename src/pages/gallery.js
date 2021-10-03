@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import style from "../css/gallery.module.css";
+import styles from "../css/qabul.module.css";
+import "../App.css";
+import { MDBContainer, MDBRow, MDBCol, MDBView, MDBMask } from "mdbreact";
+import Lightbox from "react-image-lightbox";
 import img1 from "../img/b1.JPG";
 import img2 from "../img/b2.jpg";
 import img3 from "../img/b3.jpg";
@@ -7,6 +11,9 @@ import img4 from "../img/b4.jpg";
 import img5 from "../img/b5.jpg";
 import img6 from "../img/b6.jpg";
 import img7 from "../img/b7.png";
+import tav_img from "../img/tav_img.jpg";
+import talab from "../img/talab.jpg";
+import { Carousel } from "antd";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { idMaktab, url, user } from "../host/Host";
 import axios from "axios";
@@ -15,9 +22,15 @@ import Global from "../host/Global";
 import Navbar from './Navbar'
 import Footer from './Footer'
 export default class Gallery extends Component {
+
+
   state = {
     school: [],
     loader: true,
+    images:[],
+    smallImages:[],
+    photoIndex: 0,
+    isOpen: false
   };
   getSchool = () => {
     // var a = window.location.href.split("/");
@@ -27,24 +40,92 @@ export default class Gallery extends Component {
       .then((res) => {
         this.setState({
           school: res.data,
+         
         });
+        this.getPhotos()
         setTimeout(() => {
           this.setState({
             loader: false,
           });
         }, 4000);
 
-        console.log(res.data);
+        
       })
       .catch((err) => {
         console.log(err);
       });
+      
   };
+
+  getPhotos(){
+    var images=[];
+    var smallImages=[];
+      this.state.school !== null
+      ? this.state.school.foto !== null
+        ? images.push(this.state.school.foto)
+        : images.push('rasm')
+      : images.push('rasm')
+  
+                            this.state.school !== null
+                            ? this.state.school.foto1 !== null
+                            ? images.push(this.state.school.foto1)
+        : images.push('rasm')
+      : images.push('rasm')
+  
+                            this.state.school !== null
+                            ? this.state.school.foto2 !== null
+                            ? images.push(this.state.school.foto2)
+                            : images.push('rasm')
+                          : images.push('rasm')
+  
+                            this.state.school !== null
+                            ? this.state.school.foto3 !== null
+                            ? images.push(this.state.school.foto3)
+                            : images.push('rasm')
+                          : images.push('rasm')
+  
+                            this.state.school !== null
+                            ? this.state.school.foto4 !== null
+                            ? images.push(this.state.school.foto4)
+                            : images.push('rasm')
+                          : images.push('rasm')
+  
+                            this.state.school !== null
+                            ? this.state.school.foto5 !== null
+                            ? images.push(this.state.school.foto5)
+                            : images.push('rasm')
+                          : images.push('rasm')
+
+                            this.state.school !== null
+                            ? this.state.school.foto6 !== null
+                            ? images.push(this.state.school.foto6)
+                            : images.push('rasm')
+                          : images.push('rasm')
+                          
+                            this.state.school !== null
+                            ? this.state.school.foto7 !== null
+                            ? images.push(this.state.school.foto7)
+                            : images.push('rasm')
+                          : images.push('rasm')
+
+                          smallImages = [...images]
+                          console.log(smallImages)
+                          console.log(images)
+  
+   this.setState({
+     images:images,
+     smallImages:smallImages
+   })
+                           
+    }
 
   componentDidMount() {
     this.getSchool();
+   
   }
   render() {
+    const { photoIndex, isOpen, images, smallImages } = this.state;
+
     return (
       <div>
         {this.state.loader ? (
@@ -53,23 +134,175 @@ export default class Gallery extends Component {
           </div>
         ) : (
           <div>
-           <Navbar/>
-            <div className={style.header}>
-              <img
-                alt=" "
-                src={
-                  this.state.school !== null
-                    ? this.state.school.foto !== null
-                      ? this.state.school.foto
-                      : img1
-                    : img1
-                }
-                style={{ width: "100%", height: "100%" }}
-              />
-                <h1 className={style.headerh}>Maktabimiz hayotidan fotolavhalar</h1>
-            </div>
+         <Navbar />
+                   
+                   <h1 className={styles.headerh}>Foto lavhalar</h1>
+                   <Carousel
+                   dots={false}
+                    autoplay
+                    effect="fade"
+                    style={{ zIndex: "-1" ,width:'100%'}}
+                 
+                  >
+                     {
+               this.state.images!==null? this.state.images.map((item,id)=>{
+                return(
+                  <div>
+            
+                  <img  
+                    style={{objectFit:'cover'}}
+                   src={
+                     item
+                         }
+                         className={styles.headerImage}
+                         />
+                    </div>  
+                )
+               }):''
+             }
+          
+       
+           </Carousel>
 
-            <Container>
+            <MDBContainer style={{marginTop:'100px', }}>
+        <div className="mdb-lightbox no-margin">
+          <MDBRow >
+            <MDBCol md="4" >
+            <MDBView >
+              <figure>
+              
+                <img
+                  src={smallImages[0]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 0, isOpen: true })
+                  }
+                />
+            
+              </figure>
+              </MDBView>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[1]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 1, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[2]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 2, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[3]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 3, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[4]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 4, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[5]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 5, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[6]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 6, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[7]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 7, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+            <MDBCol md="4">
+              <figure>
+                <img
+                  src={smallImages[8]}
+                  alt="Gallery"
+                  className="img-fluid"
+                  onClick={() =>
+                    this.setState({ photoIndex: 8, isOpen: true })
+                  }
+                />
+              </figure>
+            </MDBCol>
+          </MDBRow>
+        </div>
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            imageTitle={photoIndex + 1 + "/" + images.length}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length
+              })
+            }
+          />
+        )}
+      </MDBContainer>
+
+            {/* <Container>
               <Row style={{ justifyContent: "center" }}>
                 <Col lg={6} md={6} cm={12}>
                   <div class={style.imagewrapper}>
@@ -408,7 +641,7 @@ export default class Gallery extends Component {
                   </div>
                 </Col>
               </Row>
-            </Container>
+            </Container> */}
             <Footer/>
           </div>
         )}
