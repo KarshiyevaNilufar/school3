@@ -62,8 +62,10 @@ export default class Navbar extends Component {
                     <div className={styles.name}>
                         <h6 style={{color:'white'}}>{this.state.school !== null
                       ? this.state.school.address
-                      : "Samarqand viloyati"}</h6>
-                     <p style={{textTransform:'uppercase', fontWeight:'600', color:'white',marginTop:'-20px'}}>{this.state.school !== null ? this.state.school.type : ""}</p>
+                      : ""}
+                      {this.state.school !== null ? " "+this.state.school.school_number+" - "+this.state.school.type : ""}
+                      </h6>
+                     
                     </div>
                     <div className={styles.info}>
                      <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginRight:'30px'}}>
@@ -77,26 +79,28 @@ export default class Navbar extends Component {
                          <div><FiPhone style={{fontSize:'35px',color:'white'}}/></div>
                          <div style={{marginLeft:'10px'}}>
                              <p style={{fontSize:'17px',color:'white',marginTop:'10px'}}>Qo'ng'iroq qiling</p>
-                             <p style={{fontSize:'18px',color:'white',fontWeight:'600',marginTop:'-12px'}}>{
+                             <p style={{fontSize:'18px',color:'white',fontWeight:'600',marginTop:'-12px'}}>+998977902801
+                                 {/* {
                       this.state.school !== null
                         ? this.state.school.phone
-                        : "+998 93 082 03 72"
-                    }</p>
+                        : "+998977902801"
+                    } */}
+                    </p>
                          </div>
                      </div>
                     </div>
                     <div className={styles.socialMedia}>
                     <div className={styles.icons} style={{curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <FaFacebookF style={{color:'#1EB2A6'}}/>
+                         <a target="_blank" href="https://www.facebook.com/5-sonli-maktab-283432626789189/?ref=pages_you_manage"><FaFacebookF style={{color:'#1EB2A6'}}/></a>
                      </div>
                      <div className={styles.icons}  style={{ curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <FaInstagram style={{color:'#1EB2A6'}}/>
+                         <a target="_blank" href="https://www.instagram.com/5ummumtalimmaktabi/"><FaInstagram style={{color:'#1EB2A6'}}/></a>
                      </div>
                      <div className={styles.icons}  style={{curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <FaTelegramPlane style={{color:'#1EB2A6'}}/>
+                        <a target="_blank" href="https://t.me/Xorazm_5_maktab"><FaTelegramPlane style={{color:'#1EB2A6'}}/></a>
                      </div>
                      <div className={styles.icons}  style={{curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <FaYoutube style={{color:'#1EB2A6'}}/>
+                         <a target="_blank" href="https://www.youtube.com/channel/UCTU9AVjpeZQLSSh3rlwTpDw"><FaYoutube style={{color:'#1EB2A6'}}/></a>
                      </div>
                     </div>
                 </div>
@@ -118,7 +122,7 @@ export default class Navbar extends Component {
                     </div>
                 </div>
                 <div className={this.state.nav? styles.fixNav:styles.fixNav1} style={{position:'absolute',top:'17%',width:'100%',zIndex:'111111'}}>
-                <div className={styles.mobileNavbar}>
+                <div className={this.state.nav?styles.mobileNavbar1: styles.mobileNavbar}>
                 <div className={styles.rightNavbar}>
                 {this.state.school !== null
                       ? this.state.school.school_number + " - maktab"
