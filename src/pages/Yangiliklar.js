@@ -6,26 +6,13 @@ import new2 from "../img/new2.jpg";
 import new3 from "../img/new3.jpg";
 import new4 from "../img/new4.jpg";
 import styles from "../css/yangiliklar.module.css";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-
-  MDBCard,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBRow,
-  MDBCol,
-} from "mdb-react-ui-kit";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { getNews } from "../host/Config";
 import  ScaleLoader from "react-spinners/ScaleLoader";
-import { Carousel } from "antd";
 import Navbar from  './Navbar'
 import Footer from './Footer'
 import axios from 'axios'
@@ -33,17 +20,13 @@ import ReactPaginate from 'react-paginate'
 import '../App.css'
 import {FaRegCalendarAlt} from 'react-icons/fa'
 import school1 from '../img/school1.jpg'
-
-
-// import {DownCircleOutlined} from '@ant-design/icons'
-
 export default class Yangiliklar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       news: [],
-    id: 0,
-        loader:true,
+       id: 0,
+       loader:true,
       offset: 0,
       data: [
           {   
@@ -113,7 +96,7 @@ export default class Yangiliklar extends Component {
             text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
         }
       ],
-      perPage: 6,
+      perPage: 4,
       currentPage: 0
 };
 this.handlePageClick = this
@@ -121,30 +104,6 @@ this.handlePageClick = this
 .bind(this);
 }
 
-receivedData() {
-            
-            const slice = this.state.data.slice(this.state.offset, this.state.offset + this.state.perPage)
-            const postData = slice.map(pd => <React.Fragment>
-                <div style={{width:'350px',height:'500px',margin:'30px',boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',borderRadius:'5px'}}>
-                    <div style={{width:'100%',height:'250px'}}>
-                        <img src={pd.image} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
-                    </div>
-                    <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
-                        <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>{pd.date}</span>
-                        <h4 style={{marginTop:'20px'}}>{pd.title}</h4>
-                        <p style={{color:'#9D9D9D',marginTop:'20px'}}>{pd.text}</p>
-                     </div>
-                </div>
-                
-            </React.Fragment>)
-
-            this.setState({
-                pageCount: Math.ceil(this.state.data.length / this.state.perPage),
-               
-                postData
-            })
-  
-}
 handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
@@ -161,6 +120,7 @@ handlePageClick = (e) => {
     getNews()
       .then((res) => {
         if (window.location.href.indexOf("id=") === -1) {
+          this.receivedData(res.data)
           this.setState({
             news: res.data,
             loader: false,
@@ -183,17 +143,37 @@ handlePageClick = (e) => {
         });
       });
   };
+  receivedData=(data)=> {
+            
+    const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage);
+    const postData = slice.map(pd => <React.Fragment>
+        <div style={{width:'350px',height:'500px',margin:'30px',boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',borderRadius:'5px'}}>
+            <div style={{width:'100%',height:'250px'}}>
+                <img src={pd.image} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
+            </div>
+            <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
+                <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>{pd.date}</span>
+                <h4 style={{marginTop:'20px'}}>{pd.title}</h4>
+            
+             </div>
+        </div>
+        
+    </React.Fragment>)
+
+    this.setState({
+        pageCount: Math.ceil(data.length / this.state.perPage),
+       
+        postData
+    })
+
+}
   componentDidMount() {
     Aos.init({
       duration: 2000,
     });
     this.getNews();
-    this.receivedData()
+    console.log(this.state.news)
   }
-
-  // onclick_new=(link)=>{
-  //       <Link to="/${link}/uz"></Link>
-  // }
   render() {
     const contentStyle = {
       width: "100%",
