@@ -19,6 +19,7 @@ import school2 from "../img/school2.jpg";
 import jarayon from "../img/jarayon.png";
 import tav_img from "../img/tav_img.jpg";
 import talab from "../img/talab.jpg";
+// import qabulheader from '../img/qabulheader.png'
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { url, user } from "../host/Host";
@@ -133,10 +134,10 @@ class Qabul extends React.Component {
           <ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
           </div> 
         ) : (
-          <div style={{ width: "100vw", overflowX: "hidden" }}>
+          <div style={{ width: "100vw", overflowX: "hidden" }} >
                  <Navbar />
-                   <div >
-                   <h1 className={style.headerh}>Qabul</h1>
+                   <div>
+                   <h1 className={styles.headerh}>Qabul</h1>
                    <Carousel
                    dots={false}
                     autoplay
@@ -145,22 +146,29 @@ class Qabul extends React.Component {
                  
                   >
            <div>
-           <img  src={
-                    data !== null && data.m_h_h2 !== null
-                      ? data.m_h_h2
-                      : school1
+           <img  
+             style={{objectFit:'cover'}}
+            src={
+              this.state.school !== null
+              ? this.state.school.q!== null
+                ? this.state.school.q
+                : tav_img
+              : tav_img
                   }
-                  className={style.headerImage}
+                  className={styles.headerImage}
                   />
              </div>   
              <div>
              <img
+             style={{objectFit:'cover'}}
                   src={
-                    data !== null && data.m_h_h1 !== null
-                      ? data.m_h_h1
-                      : school1
+                    this.state.school !== null
+                          ? this.state.school.q_imtihon_r !== null
+                            ? this.state.school.q_imtihon_r
+                            : talab
+                          : talab
                   }
-                  className={style.headerImage}
+                  className={styles.headerImage}
                 />
                </div>      
            </Carousel>
