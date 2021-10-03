@@ -163,8 +163,10 @@ export default class Gallery extends Component {
           
        
            </Carousel>
-
+           <h1 className={style.foto} style={{marginTop:'100px', }}>Maktab hayotidan qiziqarli foto lavhalar</h1>
+              <div className={style.line}></div>
             <MDBContainer style={{marginTop:'100px', }}>
+              
         <div className="mdb-lightbox no-margin">
           <MDBRow >
             <MDBCol md="4" >
