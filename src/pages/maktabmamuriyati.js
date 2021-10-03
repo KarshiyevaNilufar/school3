@@ -15,9 +15,10 @@ import { url } from '../host/Host';
 
 import Global from '../host/Global';
 import { FadeLoader, ScaleLoader } from 'react-spinners';
-import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Navbar2 from './Navbar2';
 
 export default class Maktabmamuriyati extends Component {
 state={
@@ -48,23 +49,23 @@ getStaff=()=>{
     res.data.map(item=>{
       if(item.speciality.length!==0){
         item.speciality.map(item1=>{
-          if(item1===2){
+          if(item1===3){
             direktor.push(item)
           }
-          if(item1===3){
+          if(item1===4){
             orin1.push(item)
           }
-          if(item1===4){
+          if(item1===5){
             orin2.push(item)
           }
-          if(item1===5){
+          if(item1===7){
             orin3.push(item)
           }
           if(item1===6){
             
             psixolog.push(item)
           }
-          if(item1===7){
+          if(item1===9){
             yetakchi.push(item)
           }
           if(item1===8){
@@ -127,7 +128,7 @@ setTimeout(()=>{
           
          : 
             <div>
-            <Navbar/>
+            <Navbar2/>
 
             
               <h1 className={styles.headerh}>Maktab ma'muriyati</h1>
@@ -142,7 +143,9 @@ setTimeout(()=>{
                    
                   <div>
                   <img  src={
-                      school3
+                      this.state.direktor.map(item=>{
+                        return(item.image)
+                      })
                          }
                          className={style.headerImage}
                          />
@@ -150,27 +153,28 @@ setTimeout(()=>{
            </Carousel>
                 <Container>
                 <div className={styles.body}>
-                <MDBRow className='row-cols-1 row-cols-md-3  g-4'>
+                <MDBRow className='row-cols-1 row-cols-md-2  row-cols-lg-3'>
                     {this.state.direktor!==null?this.state.direktor.map(item=>{
  return(
   <MDBCol>
-    <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-      <MDBCardImage 
-      className={styles.card_img}
-        src={item.image}
-        alt='...'
-        position='top'
-         style={{width:'415px', height:'277px'}}
-      
-      />
+    <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+    <div className={styles.card_img}>
+             <img
+               
+                  src={item.image}
+                  alt='...'
+                  position='top'
+                   style={{width:'100%', height:'100%'}}
+                />
+             </div>
       <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
         <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
         <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
           Maktab Direktori
         </MDBCardText>
       </MDBCardBody>
-      <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px', minHeight:'160px'}}>
-        <small className='text-muted' style={{fontSize:'16px'}}>
+      <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px', maxHeight:'400px'}}>
+        <small className='text-muted' style={{fontSize:'16px', height:'auto'}}>
           <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
           <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
           <b style={{color:'#1EB2A6'}}>Qo'shimcha: </b> {item.description==null? "Ma'lumot to'q":item.description}<br/>
@@ -186,21 +190,23 @@ setTimeout(()=>{
        {this.state.orin1!==null?this.state.orin1.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   O'quv va tarbiyaviy ishlar bo'yicha direktor o'rinbosari
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -216,21 +222,23 @@ setTimeout(()=>{
        {this.state.orin2!==null?this.state.orin2.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Ma'naviy-ma'rifiy ishlar bo'yicha direktor o'rinbosari
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -245,21 +253,23 @@ setTimeout(()=>{
        {this.state.orin3!==null?this.state.orin3.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Ma'muriy-xo’jalik ishlar bo'yicha direktor o'rinbosari
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -273,21 +283,23 @@ setTimeout(()=>{
        {this.state.psixolog!==null?this.state.psixolog.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Maktab amaliyotchi psixologi
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -302,21 +314,23 @@ setTimeout(()=>{
        {this.state.kasaba!==null?this.state.kasaba.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Kasaba uyushma raisi
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -331,21 +345,23 @@ setTimeout(()=>{
        {this.state.kutubxona!==null?this.state.kutubxona.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Kutubxona mudirasi
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -360,21 +376,23 @@ setTimeout(()=>{
        {this.state.chqbt!==null?this.state.chqbt.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+              <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Chaqiruvga qadar boshlang‘ich tayyorgarlik rahbari
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
@@ -389,21 +407,23 @@ setTimeout(()=>{
        {this.state.yetakchi!==null?this.state.yetakchi.map(item=>{
              return(
               <MDBCol>
-              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'560px', marginBottom:'30px'}} className={styles.card}>
-                <MDBCardImage
-                className={styles.card_img}
+              <MDBCard data-aos="flip-right" className='h-100' style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', height:'630px', marginBottom:'30px'}} className={styles.card}>
+             <div className={styles.card_img}>
+             <img
+               
                   src={item.image}
                   alt='...'
                   position='top'
-                   style={{width:'415px', height:'277px'}}
+                   style={{width:'100%', height:'100%'}}
                 />
+             </div>
                 <MDBCardBody style={{textAlign:'center', padding:'20px 20px', display:'flex', flexDirection:'column', justifyContent:'center'}} className={styles.card_body}>
                   <MDBCardTitle className={styles.boyd_title}>{item.full_name}</MDBCardTitle>
                   <MDBCardText style={{fontSize:'18px', fontWeight:'500'}}>
                   Boshlang'ich tashkilot yoshlar yetakchisi
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardFooter style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
+                <MDBCardFooter className={styles.card_footer} style={{backgroundColor:'#fff', padding:'30px 30px', borderTopColor:'#1EB2A6', minHeight:'160px'}}>
                   <small className='text-muted' style={{fontSize:'16px'}}>
                     <b style={{color:'#1EB2A6'}}>Mutaxasisligi: </b>{item.position}<br/>
                     <b style={{color:'#1EB2A6'}}>Telefon raqami: </b>{item.phone}<br/>
