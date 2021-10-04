@@ -38,3 +38,7 @@
     height: 100vh;
     background-color: white;
 }
+.btnNews:hover{
+ color:#1EB2A6 !important;
+ background-color:white !important; 
+}

@@ -20,89 +20,43 @@ import ReactPaginate from 'react-paginate'
 import '../App.css'
 import {FaRegCalendarAlt} from 'react-icons/fa'
 import school1 from '../img/school1.jpg'
+import{url} from '../host/Host'
+import Global from "../host/Global";
+import { Modal } from 'antd';
+
 export default class Yangiliklar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      visible: false ,
       news: [],
        id: 0,
        loader:true,
-      offset: 0,
-      data: [
-          {   
-              image:school1,
-              date:'JAN. 18, 2021',
-              title:'Build your Dream Software & Engineering Career',
-              text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-          },
-          {   
-              image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        },
-        {   
-            image:school1,
-            date:'JAN. 18, 2021',
-            title:'Build your Dream Software & Engineering Career',
-            text:'A small river named Duden flows by their place and supplies it with the necessary regelialia.'
-        }
-      ],
-      perPage: 4,
-      currentPage: 0
+       perPage: 6,
+       page: 0,
+       pages: 0,
 };
 this.handlePageClick = this
 .handlePageClick
 .bind(this);
+this.showModal = this
+.showModal
+.bind(this);
+this.hideModal = this
+.hideModal
+.bind(this);
 }
+showModal = () => {
+  this.setState({
+    visible: true,
+  });
+};
+
+hideModal = () => {
+  this.setState({
+    visible: false,
+  });
+};
 
 handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -116,14 +70,14 @@ handlePageClick = (e) => {
     });
 
 };
-  getNews = () => {
-    getNews()
-      .then((res) => {
+  getNews = async() => {
+    let res = await axios.get( `${url}/new/${Global.schoolId}/`).catch(err => console.log(err));
+    
         if (window.location.href.indexOf("id=") === -1) {
-          this.receivedData(res.data)
           this.setState({
             news: res.data,
             loader: false,
+            pages: Math.floor(res.data.length / this.state.perPage)
           });
         } else {
           this.setState({
@@ -134,45 +88,17 @@ handlePageClick = (e) => {
             loader: false,
           });
         }
-      })
-      .catch((err) => {
-        console.log(err);
-
-        this.setState({
-          loader: false,
-        });
-      });
+      
   };
-  receivedData=(data)=> {
-            
-    const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage);
-    const postData = slice.map(pd => <React.Fragment>
-        <div style={{width:'350px',height:'500px',margin:'30px',boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',borderRadius:'5px'}}>
-            <div style={{width:'100%',height:'250px'}}>
-                <img src={pd.image} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
-            </div>
-            <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
-                <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#949494',fontSize:'14px',fontWeight:'700'}}>{pd.date}</span>
-                <h4 style={{marginTop:'20px'}}>{pd.title}</h4>
-            
-             </div>
-        </div>
-        
-    </React.Fragment>)
-
-    this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
-       
-        postData
-    })
-
-}
+  handlePageClick = (event) => {
+    let page = event.selected;
+    this.setState({page})
+  }
   componentDidMount() {
     Aos.init({
       duration: 2000,
     });
     this.getNews();
-    console.log(this.state.news)
   }
   render() {
     const contentStyle = {
@@ -183,6 +109,27 @@ handlePageClick = (e) => {
       textAlign: "center",
       fontFamily: "Lobster",
     };
+  const {page, perPage, pages, news} = this.state;
+   let items = news.slice(page * perPage, (page + 1) * perPage);
+   let weathers = items.map((item,key) => {
+     return (
+      <div style={{width:'350px',height:'43 0px',margin:'30px',boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',borderRadius:'5px',backgroundColor:'white'}}>
+                   <div style={{width:'100%',height:'250px'}}>
+                      <img src={item.image} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
+                   </div>
+                   <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
+                       <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#1EB2A6',fontSize:'14px',fontWeight:'700'}}> {item.published_time.substring(
+                                             0,
+                                              10
+                                            )}{" "}</span>
+                       <h4 style={{marginTop:'20px'}}>{item.title}</h4>
+                       <p className={styles.btnNews} style={{cursor:'pointer',border:'1px solid #1EB2A6', transition:'all 0.3s', backgroundColor:'#1EB2A6',color:'white',padding:'5px 20px',display:'inline-block'}} onClick={() => {
+                                  this.setState({ id: key, visible:true });
+                                }}>Batafsil</p>
+                    </div>
+               </div>
+     )
+   }) || '';
     return (
 
 
@@ -200,135 +147,49 @@ handlePageClick = (e) => {
          <h2 style={{textAlign:'center',backgroundColor:'#F8F8F8',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
           <div className={styles.news}>
           
-                  {this.state.postData}
+              {weathers}
            
        
       </div>
       <ReactPaginate
-            previousLabel={"oldingisi"}
-            nextLabel={"keyingisi"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={this.handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}/>
+         previousLabel={'prev'}
+         nextLabel={'next'}
+         pageCount={pages}
+         onPageChange={this.handlePageClick}
+         containerClassName={'pagination'}
+         activeClassName={'active'}
+       />
         <Footer/>
+        <Modal
+        width={1000}
+          title={false}
+          visible={this.state.visible}
+          onOk={this.hideModal}
+          onCancel={this.hideModal}
+          okText="Yopish"
+          closable={false}
+          maskClosable={true}
+        >
+        {
+          this.state.news.map((item,key)=>{
+            return(
+              this.state.id===key?(
+                <div>
+                   <h3>{item.title}</h3>
+                 <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#1EB2A6',fontSize:'14px',fontWeight:'700'}}> {item.published_time.substring(
+                  0,
+                   10
+                 )}{" "}</span>
+                 <p>{item.text}</p>
+                </div>
+                ):''
+            )
+          })
+        }
+        </Modal>
      </div>
         )}
         </div>
-      // <div>
-      //   {this.state.loader ? (
-      //     <div className="loader">
-      //       < ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-      //     </div>
-      //   ) : (
-      //     <>
-      //       <Navbar/>
-      //       <div className={styles.header}>
-      //         <h1>Maktabimiz so'nggi yangiliklari</h1>
-      //      </div>
-
-      //       <Container fluid>
-      //         <div className={styles.yangi}>
-      //           <h1 style={{ fontSize: "60px" }} data-aos="fade-up">
-      //             Yangiliklar
-      //           </h1>
-      //         </div>
-      //         <Row>
-      //           <Col lg={7}>
-      //             {this.state.news.length !== 0 ? (
-      //               <div className={styles.news} data-aos="zoom-in-right">
-      //                 <img
-      //                   src={this.state.news[this.state.id].image}
-      //                   alt="Foto lavha"
-      //                 />
-      //                 <h4 style={{color:'#1EB2A6',marginTop:'30px'}}>{this.state.news[this.state.id].title}</h4>
-
-      //                 <p className={styles.date}>
-      //                   <i
-      //                     style={{ marginRight: "10px" }}
-      //                     class="far fa-calendar-alt"
-      //                   ></i>
-      //                   {this.state.news[
-      //                     this.state.id
-      //                   ].published_time.substring(0, 10)}
-      //                 </p>
-      //                 <p>{this.state.news[this.state.id].text}</p>
-      //               </div>
-      //             ) : (
-      //               ""
-      //             )}
-      //           </Col>
-      //           <Col lg={5}>
-      //             <div className={styles.recent_news} data-aos="zoom-in-left">
-      //               <div className={styles.title}>
-      //                 <h3>So'nggi yangiliklar</h3>
-      //               </div>
-      //               <div className={styles.body}>
-      //                 <Row>
-      //                   {this.state.news.map((item, key) => {
-      //                     return (
-      //                       <Col
-      //                         lg={12}
-      //                         md={12}
-      //                         sm={12}
-      //                         style={{ marginBottom: "10px" }}
-      //                         className={styles.body_card}
-      //                       >
-      //                         <MDBCard
-      //                           onClick={() => {
-      //                             this.setState({ id: key });
-      //                           }}
-      //                           style={{ maxWidth: "540px" }}
-      //                         >
-      //                           <MDBRow className="g-0">
-      //                             <MDBCol md="4">
-      //                               <MDBCardImage
-      //                                 src={item.image}
-      //                                 alt="..."
-      //                                 fluid
-      //                                 style={{ margin: "7px" }}
-      //                               />
-      //                             </MDBCol>
-      //                             <MDBCol md="8">
-      //                               <MDBCardBody>
-      //                                 <MDBCardTitle>{item.title}</MDBCardTitle>
-
-      //                                 <MDBCardText>
-      //                                   <small className="text-muted">
-      //                                     <p className={styles.date}>
-      //                                       <i
-      //                                         style={{ marginRight: "10px" }}
-      //                                         class="far fa-calendar-alt"
-      //                                       ></i>
-      //                                       {item.published_time.substring(
-      //                                         0,
-      //                                         10
-      //                                       )}{" "}
-      //                                     </p>{" "}
-      //                                   </small>
-      //                                 </MDBCardText>
-      //                               </MDBCardBody>
-      //                             </MDBCol>
-      //                           </MDBRow>
-      //                         </MDBCard>
-      //                       </Col>
-      //                     );
-      //                   })}
-      //                 </Row>
-      //               </div>
-      //             </div>
-      //           </Col>
-      //         </Row>
-      //       </Container>
-      //       <Footer/>
-      //     </>
-      //   )}
-      // </div>
     );
   }
 }
