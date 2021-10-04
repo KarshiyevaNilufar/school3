@@ -14,8 +14,11 @@ import tadbir1 from "../img/tadbir1.jfif";
 import tadbir2 from "../img/tadbir2.jfif";
 import tadbir3 from "../img/tadbir3.jfif";
 import tadbir4 from "../img/tadbir4.jfif";
+import {FaRegCalendarAlt} from 'react-icons/fa'
 import styles from "../css/yangiliklar.module.css";
-
+import ReactPaginate from 'react-paginate'
+import '../App.css'
+import { Modal } from 'antd';
 // import { Container, Row, Col } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -45,26 +48,65 @@ import Footer from "./Footer";
 // import { Carousel } from "antd";
 
 export default class Yangiliklar extends Component {
-  state = {
-    events: [],
-    id: 0,
-    loader: true,
-    data: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false ,
+      events: [],
+       id: 0,
+       loader:true,
+       perPage: 6,
+       page: 0,
+       pages: 0,
+};
+this.handlePageClick = this
+.handlePageClick
+.bind(this);
+this.showModal = this
+.showModal
+.bind(this);
+this.hideModal = this
+.hideModal
+.bind(this);
+}
+showModal = () => {
+  this.setState({
+    visible: true,
+  });
+};
 
-  getEvents = () => {
+hideModal = () => {
+  this.setState({
+    visible: false,
+  });
+};
+
+handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    const offset = selectedPage * this.state.perPage;
+
+    this.setState({
+        currentPage: selectedPage,
+        offset: offset
+    }, () => {
+        this.receivedData()
+    });
+
+};
+
+  getEvents = async () => {
     // var a = window.location.href.split("/");
     var v = user;
     axios.get(`${url}/school-by-admin/${v}`).then((res) => {
       this.setState({ loading: false, data: res.data });
     });
-    getEvents()
-      .then((res) => {
-        console.log(res.data);
+    let res = await axios.get( `${url}/event/${Global.schoolId}/`).catch(err => console.log(err));
+ 
         if (window.location.href.indexOf("id=") === -1) {
           this.setState({
             events: res.data,
             loader: false,
+            pages: Math.floor(res.data.length / this.state.perPage)
           });
         } else {
           this.setState({
@@ -75,14 +117,12 @@ export default class Yangiliklar extends Component {
             loader: false,
           });
         }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({
-          loader: false,
-        });
-      });
+
   };
+  handlePageClick = (event) => {
+    let page = event.selected;
+    this.setState({page})
+  }
   componentDidMount() {
     Aos.init({
       duration: 2000,
@@ -104,6 +144,27 @@ export default class Yangiliklar extends Component {
       textAlign: "center",
       fontFamily: "Lobster",
     };
+    const {page, perPage, pages, events} = this.state;
+   let items = events.slice(page * perPage, (page + 1) * perPage);
+   let weathers = items.map((item,key) => {
+     return (
+      <div style={{width:'350px',height:'43 0px',margin:'30px',boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',borderRadius:'5px',backgroundColor:'white'}}>
+                   <div style={{width:'100%',height:'250px'}}>
+                      <img src={item.image} style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'5px 5px 0 0'}}/>
+                   </div>
+                   <div style={{textAlign:"left",padding:'20px',backgroundColor:'white'}}>
+                       <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#1EB2A6',fontSize:'14px',fontWeight:'700'}}> {item.published_time.substring(
+                                             0,
+                                              10
+                                            )}{" "}</span>
+                       <h4 style={{marginTop:'20px'}}>{item.title}</h4>
+                       <p className={styles.btnNews} style={{cursor:'pointer',border:'1px solid #1EB2A6', transition:'all 0.3s', backgroundColor:'#1EB2A6',color:'white',padding:'5px 20px',display:'inline-block'}} onClick={() => {
+                                  this.setState({ id: key, visible:true });
+                                }}>Batafsil</p>
+                    </div>
+               </div>
+     )
+   }) || '';
     return (
       <div>
         {this.state.loader ? (
@@ -114,117 +175,54 @@ export default class Yangiliklar extends Component {
           <div>
             {/* ============Header============== */}
             <Navbar/>
-            <div className={styles.header_t} style={{backgroundImage:`url(${
-                    this.state.data !== null && this.state.data.m_h_h4 !== null
-                      ? this.state.data.m_h_h4
-                      : new1
-                  })`}}>
-              <h1>Maktabimiz so'nggi tadbirlari bilan tanishing</h1>
-           </div>
-
-            <Container fluid>
-              <div className={styles.yangi}>
-                <h1 style={{ fontSize: "60px" }} data-aos="fade-up">
-                  Tadbirlar
-                </h1>
-              </div>
-              <div
-                className={styles.line}
-                style={{ borderColor: "#0F4C81" }}
-                data-aos="fade-up"
-              ></div>
-              <Row>
-                <Col lg={7}>
-                  {this.state.events.length !== 0 ? (
-                    <div className={styles.news} data-aos="zoom-in-right">
-                      <img
-                        src={this.state.events[this.state.id].image}
-                        alt="Foto lavha"
-                      />
-                      <h3>{this.state.events[this.state.id].title}</h3>
-
-                      <p className={styles.date}>
-                        <i
-                          style={{ marginRight: "10px" }}
-                          class="far fa-calendar-alt"
-                        ></i>
-                        {this.state.events[
-                          this.state.id
-                        ].published_time.substring(0, 10)}
-                      </p>
-                      <p>{this.state.events[this.state.id].text}</p>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </Col>
-                <Col lg={5}>
-                  <div
-                    className={styles.recent_news}
-                    style={{ backgroundColor: "#1EB2A6" }}
-                    data-aos="zoom-in-left"
-                  >
-                    <div className={styles.title}>
-                      <h3 style={{ color: "white" }}>So'ngi tadbirlar</h3>
-                    </div>
-                    <div className={styles.body}>
-                      <Row>
-                        {this.state.events.map((item, key) => {
-                          return (
-                            <Col
-                              lg={12}
-                              md={12}
-                              sm={12}
-                              style={{ marginBottom: "10px" }}
-                              className={styles.body_card}
-                            >
-                              <MDBCard
-                                onClick={() => {
-                                  this.setState({ id: key });
-                                }}
-                                style={{ maxWidth: "540px" }}
-                              >
-                                <MDBRow className="g-0">
-                                  <MDBCol md="4">
-                                    <MDBCardImage
-                                      src={item.image}
-                                      alt="..."
-                                      fluid
-                                      style={{ margin: "7px" }}
-                                    />
-                                  </MDBCol>
-                                  <MDBCol md="8">
-                                    <MDBCardBody>
-                                      <MDBCardTitle>{item.title}</MDBCardTitle>
-
-                                      <MDBCardText>
-                                        <small className="text-muted">
-                                          <p className={styles.date}>
-                                            <i
-                                              style={{ marginRight: "10px" }}
-                                              class="far fa-calendar-alt"
-                                            ></i>
-                                            {item.published_time.substring(
-                                              0,
-                                              10
-                                            )}{" "}
-                                          </p>{" "}
-                                        </small>
-                                      </MDBCardText>
-                                    </MDBCardBody>
-                                  </MDBCol>
-                                </MDBRow>
-                              </MDBCard>
-                            </Col>
-                          );
-                        })}
-                      </Row>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-            <Footer/>
+            <div className={styles.header}>
+            <h1>Tadbirlar</h1>
+         </div>
+         <h2 style={{textAlign:'center',backgroundColor:'#F8F8F8',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
+          <div className={styles.news}>
+          
+              {weathers}
+           
+       
+      </div>
+         <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <ReactPaginate
+         previousLabel={'oldingisi'}
+         nextLabel={'keyingisi'}
+         pageCount={pages}
+         onPageChange={this.handlePageClick}
+         containerClassName={'pagination'}
+         activeClassName={'active'}
+       />
+      </div>
+        <Footer/>
+        <Modal
+        width={1000}
+          title={false}
+          visible={this.state.visible}
+          onOk={this.hideModal}
+          onCancel={this.hideModal}
+          okText="Yopish"
+          closable={false}
+          maskClosable={true}
+        >
+        {
+          this.state.events.map((item,key)=>{
+            return(
+              this.state.id===key?(
+                <div>
+                   <h3>{item.title}</h3>
+                 <FaRegCalendarAlt style={{color:'#1EB2A6'}}/> <span style={{marginLeft:'10px',color:'#1EB2A6',fontSize:'14px',fontWeight:'700'}}> {item.published_time.substring(
+                  0,
+                   10
+                 )}{" "}</span>
+                 <p>{item.text}</p>
+                </div>
+                ):''
+            )
+          })
+        }
+        </Modal>
           </div>
          
         )

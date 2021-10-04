@@ -151,14 +151,16 @@ handlePageClick = (e) => {
            
        
       </div>
+      <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
       <ReactPaginate
-         previousLabel={'prev'}
-         nextLabel={'next'}
+         previousLabel={'oldingisi'}
+         nextLabel={'keyingisi'}
          pageCount={pages}
          onPageChange={this.handlePageClick}
          containerClassName={'pagination'}
          activeClassName={'active'}
        />
+      </div>
         <Footer/>
         <Modal
         width={1000}
