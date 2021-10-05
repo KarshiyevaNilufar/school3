@@ -213,6 +213,172 @@ export default class MaktabHayoti extends Component {
                 </Col>
                 </Row>
               </Container>
+              <div className={styles.cardLink}>
+                <Container>
+                  <Row>
+                    <Col lg={6}>
+                      <div className={styles.imgLink}>
+                     <img  src={
+          data.m_h_oshxona !== null && data !== null
+         ? data.m_h_oshxona
+               : school7
+                    } style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne} >
+                    <h5 style={{color:'white'}}>Maktab oshxonasi</h5>
+                      <p style={{color:'white'}}>
+                     {data.m_h_oshxona_t !== null && data !== null
+                    ? data.m_h_oshxona_t
+                        : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                     katta til okeanida yashaydilar. Dudenmut nomli kichik
+                     daryo.`}
+                       </p>
+                    </div>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  src={
+                      data.m_h_sport !== null && data !== null
+                          ? data.m_h_sport
+                            : school8
+                      } 
+                      style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Sport mashg'ulotlari</h5>
+                        <p style={{color:'white'}}>
+                     {data.m_h_sport_t !== null && data !== null
+                          ? data.m_h_sport_t
+                           : `
+                          Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                          katta til okeanida yashaydilar. Dudenmut nomli kichik
+                          daryo.`}
+                      </p>
+                    </div>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  
+                    src={
+                                         data.m_h_musiqa !== null && data !== null
+                                            ? data.m_h_musiqa
+                                           : school9
+                                     }
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}> San'at va madaniyat</h5>
+                     <p style={{color:'white'}}>
+                       {data.m_h_musiqa_t !== null && data !== null
+                         ? data.m_h_musiqa_t
+                           : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                          katta til okeanida yashaydilar. Dudenmut nomli kichik
+                           daryo.`}
+                       </p>
+                    </div>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  src={
+                         data.m_h_axborot !== null && data !== null
+                          ? data.m_h_axborot
+                           : school10
+                         }
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Axborot texnologiyalari</h5>
+                        <p style={{color:'white'}}>
+                          {data.m_h_axborot_t !== null && data !== null
+                           ? data.m_h_axborot_t
+                           : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                         katta til okeanida yashaydilar. Dudenmut nomli kichik
+                          daryo.`}
+                        </p>
+                    </div>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img   src={
+                          data.m_h_xavfsizlik !== null && data !== null
+                            ? data.m_h_xavfsizlik
+                            : school11
+                       }
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Xavfsizlik va qo'riqlash</h5>
+                        <p style={{color:'white'}}>
+                        {data.m_h_xavfsizlik_t !== null && data !== null
+                          ? data.m_h_xavfsizlik_t
+                            : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                        katta til okeanida yashaydilar. Dudenmut nomli kichik
+                          daryo.`}
+                       </p>
+                    </div>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  src={
+                           data.m_h_tibbiyot !== null && data !== null
+                             ? data.m_h_tibbiyot
+                            : school12
+                        } 
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Sog'lik va salomatlik</h5>
+                        <p style={{color:'white'}}>
+                          {data.m_h_tibbiyot_t !== null && data !== null
+                          ? data.m_h_tibbiyot_t
+                           : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                          katta til okeanida yashaydilar. Dudenmut nomli kichik
+                         daryo.`}
+                        </p>
+                    </div>
+                      </div>
+                    </Col>
+                    
+                    
+                  </Row>
+                </Container>
+              </div>
+              <Container fluid style={{padding:'0'}}>
+                <Row>
+                <Col lg={12}>
+                  <Row>
+                    <Col lg={6} md={6} sm={12} className={styles.director}>
+                      <Image
+                        src={
+                          data.m_h_o_r !== null && data !== null
+                            ? data.m_h_o_r
+                            : school13
+                        }
+                      />
+                    </Col>
+                    <Col
+                      lg={6}
+                      md={6}
+                      sm={12}
+                      className={styles.director}
+                      style={{ backgroundColor: "#1EB2A6", padding: "10%" }}
+                    >
+                      <p>
+                        {data.m_h_o !== null && data !== null
+                          ? data.m_h_o
+                          : `Bizning maqsadimiz moliyaviy xizmatlar sohasining
+                          markazida bo'lishdir, chunki korxonalar bo'ylab biznes
+                          kengaymoqda.`}
+                      </p>
+                      <h1>
+                        {data.m_h_o_t !== null && data !== null
+                          ? data.m_h_o_t
+                          : "Alisa"}
+                      </h1>
+                    </Col>
+                  </Row>
+                </Col>
+                </Row>
+              </Container>
               <Footer/>
           </div>
       )}

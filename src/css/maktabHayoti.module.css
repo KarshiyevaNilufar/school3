@@ -148,6 +148,46 @@
   .PannellumReactContainer {
     position: relative;
   }
+  .cardLink{
+      margin-top: 100px;
+
+  }
+  .imgLink{
+      width: 100%;
+      height: 300px;
+      position: relative;
+      border:1px solid #22B4A8;
+      margin-bottom: 20px;
+  }
+  .cardTextOne{
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 40%;
+      height: 90%;
+      background-color:rgba(30,178,166);
+      padding:2%;
+  }
+  .director img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+  }
+  .director {
+    text-align: left !important;
+  }
+  .director p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left !important;
+  }
+  .director h1 {
+    font-family: "Lobster", cursive;
+    font-weight: 400 !important;
+    margin-top: 30px;
+    color: white;
+    font-size: 30px !important;
+  }
 @media screen and (max-width:566px) {
     .header{
         text-align: center;
@@ -239,6 +279,9 @@
       }
       .ph4{
         font-size: 20px !important;
+      }
+      .director img {
+        height: 500px;
       }
 }
 @media screen and (min-width:993px) {
@@ -338,5 +381,9 @@
       }
       .ph4{
         font-size: 25px !important;
+      }
+      .director img {
+        width: 100% !important;
+        height: 100%;
       }
 }
