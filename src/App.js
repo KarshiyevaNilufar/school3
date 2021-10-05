@@ -56,9 +56,10 @@ export default class App extends Component {
     return (
       <div style={{ width: "100%", overflowX: "hidden" }}>
         {this.state.loader ? (
-         <div className='loader'>
-         <ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-         </div> 
+        <div className='loader'>
+        <div><ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} /></div>
+        <div><p>Sayt test rejimida ishlamoqda</p></div>
+        </div> 
         ) : this.state.error ? (
           <SelectMap />
         ) : (

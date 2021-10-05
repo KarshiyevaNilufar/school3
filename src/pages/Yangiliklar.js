@@ -135,9 +135,10 @@ handlePageClick = (e) => {
 
       <div>
       {this.state.loader ? (
-        <div className={styles.loader}>
-          <ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-        </div>
+          <div className={styles.loader}>
+          <div><ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} /></div>
+          <div><p>Sayt test rejimida ishlamoqda</p></div>
+          </div>  
       ) : (
      <div style={{backgroundColor:'#F8F8F8',textAlign:'center'}}>
          <Navbar/>

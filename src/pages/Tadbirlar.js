@@ -168,9 +168,10 @@ handlePageClick = (e) => {
     return (
       <div>
         {this.state.loader ? (
-          <div className="loader">
-          < ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-        </div>
+          <div className={styles.loader}>
+          <div><ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} /></div>
+          <div><p>Sayt test rejimida ishlamoqda</p></div>
+          </div>  
         ) : (
           <div>
             {/* ============Header============== */}

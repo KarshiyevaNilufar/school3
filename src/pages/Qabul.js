@@ -131,8 +131,9 @@ class Qabul extends React.Component {
       <div>
         {this.state.loader ? (
           <div className={styles.loader}>
-          <ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-          </div> 
+          <div><ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} /></div>
+          <div><p>Sayt test rejimida ishlamoqda</p></div>
+          </div>  
         ) : (
           <div style={{ width: "100vw", overflowX: "hidden" }} >
                  <Navbar />

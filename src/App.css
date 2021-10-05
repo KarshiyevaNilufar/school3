@@ -29,12 +29,18 @@
     border-radius: unset
   }
   .loader{
-    display: flex;
-    justify-content: center;
-    align-items:center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column !important;
+    color: #1EB2A6;
+    font-size: 25px;
 }
 @-webkit-keyframes closeWindow {
     0% {

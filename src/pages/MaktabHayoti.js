@@ -36,7 +36,7 @@ import Footer from './Footer'
 
 export default class MaktabHayoti extends Component {
   state = {
-    loading: true,
+    loader: true,
     data: [],
   };
   componentDidMount() {
@@ -49,7 +49,7 @@ export default class MaktabHayoti extends Component {
       this.setState({ data: res.data });
       setTimeout(() => {
         this.setState({
-          loading: false,
+          loader: false,
         });
       }, 2000);
     });
@@ -104,9 +104,10 @@ export default class MaktabHayoti extends Component {
 
       <div>
       {this.state.loader ? (
-        <div className={styles.loader}>
-          <ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-        </div>
+          <div className={styles.loader}>
+          <div><ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} /></div>
+          <div><p>Sayt test rejimida ishlamoqda</p></div>
+          </div> 
       ) : (
           <div style={{overflow:'hidden'}}>
               <Navbar/>

@@ -377,9 +377,10 @@ export default class BoshSahifa extends Component {
     return (
       <div>
       {this.state.loader ? (
-        <div className={styles.loader}>
-          <ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} />
-        </div>
+          <div className='loader'>
+          <div><ScaleLoader color="#1EB2A6" loading={this.state.loader} size={120} /></div>
+          <div><p>Sayt test rejimida ishlamoqda</p></div>
+          </div> 
       ) : (
           <div style={{overflow:'hidden',zIndex:'1'}}>
               <Navbar/>
