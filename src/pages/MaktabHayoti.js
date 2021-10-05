@@ -116,74 +116,269 @@ export default class MaktabHayoti extends Component {
               <div className={styles.benefits}>
                   <Container>
                       <Row>
-                          <Col lg={6}>
-                            <img src={school1} style={{width:'100%'}}/>
-                          </Col>
+                          
                           <Col lg={6} style={{padding:'30px'}}>
-                              <h1>Maktabimiz haqida qisqacha ma'lumot</h1>
-                              <div className={styles.card}>
-                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'20px'}}/></div>
+                              <h1>Tadbirlar va qadriyatlar</h1>
+                              <p className={styles.secondText} data-aos="zoom-in-up">
+                           {data !== null && data.m_h_tq !== null
+                             ? data.m_h_tq
+                            : `Uzoqlarda, tog'lar so'zining orqasida, Vokaliya va
+                         Consonantia mamlakatlaridan uzoqroqda ko'r matnlar
+                        yashaydi. Ular alohida yashashadi Alohida ular Semantika
+                       qirg'og'idagi Bookmarksgroveda, katta til okeanida
+                        yashaydilar. Duden nomli kichik daryo ularning joylari
+                         bo'ylab oqadi va uni zarur regelialiya bilan ta'minlaydi.
+                         Bu paradisematik mamlakat, unda jumlaning qovurilgan
+                       qismlari og'zingizga uchadi. Hattoki qudratli ishora ham
+                        ko'r-ko'rona matnlarni nazorat qila olmaydi, bu deyarli
+                        nostografik hayot.`}
+                       </p>
+                              <div style={{marginTop:'50px'}} className={styles.card}>
+                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
                                   <div>
-                                      <h4>Online Courses</h4>
-                                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                      <h4>Navruz bayrami</h4>
                                   </div>
                               </div>
                               <div className={styles.card}>
-                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'20px'}}/></div>
+                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
                                   <div>
-                                      <h4>Online Courses</h4>
-                                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                      <h4>Mustaqillik kuni</h4>
                                   </div>
                               </div>
                               <div className={styles.card}>
-                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'20px'}}/></div>
+                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
                                   <div>
-                                      <h4>Online Courses</h4>
-                                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                      <h4>Bitiruv tadbiri</h4>
                                   </div>
                               </div>
+                          </Col>
+                          <Col lg={6} style={{display:'flex',flexDirection:'row',flexWrap:'wrap',textAlign:'center',justifyContent:'center',marginBottom:'50px'}}>
+                            <div style={{marginTop:'20px'}} className={styles.imgTadbir}><img 
+                            src={
+                            data !== null && data.m_h_navruz !== null
+                                ? data.m_h_navruz
+                                   : school1
+                              }
+                            style={{width:'100%',height:'100%',objectFit:'cover',marginBottom:'20px',boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px'}}/></div>
+                            <div className={styles.imgTadbir}><img 
+                        src={
+                       data !== null && data.m_h_mustaqillik !== null
+                         ? data.m_h_mustaqillik
+                         : school2
+                        }
+                                  style={{width:'100%',height:'100%',objectFit:'cover',marginBottom:'20px',boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px'}}/></div>
+                            <div className={styles.imgTadbir}><img 
+                            src={
+                         data !== null && data.m_h_bitiruv !== null
+                            ? data.m_h_bitiruv
+                             : school4
+                             }
+                            style={{width:'100%',height:'100%',objectFit:'cover',marginBottom:'20px',boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px'}}/></div>
                           </Col>
                       </Row>
                   </Container>
               </div>
-              <div className={styles.counter}>
-                  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+              <Container fluid style={{padding:'0'}}>
+                <Row>
+                <Col lg={12} style={{padding:'0'}} className={styles.panoramic}>
+                  <div className={styles.PannellumReactContainer}>
+                    <div className={styles.paramumic_data} >
                       <div>
-                          <BsPersonCheck style={{fontSize:'50px',marginRight:'20px',color:'white'}}/>
+                        <h2 className={styles.ph2} style={{ width: "80%", marginLeft: "10%" }}>
+                          {data.m_h_k_h !== null && data !== null
+                            ? data.m_h_k_h
+                            : `Talabalar shaharchasida sayohat qilishning ko'plab
+                            variantlari mavjud.`}
+                        </h2>
+                        <h4
+                        className={styles.ph4}
+                          style={{
+                            width: "80%",
+                            marginLeft: "10%",
+                            height: "200px",
+                            overflowY: "auto",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          {data.m_h_k_t !== null && data !== null
+                            ? data.m_h_k_t
+                            : `Talabalar shaharchasida sayohat qilishning ko'plab
+                            variantlari mavjud. U erda ko'r-ko'rona matnlar
+                            yashaydi.`}
+                        </h4>
                       </div>
-                      <div>
-                          <h1 style={{fontWeight:'700',color:'white',marginTop:'10px'}}>3000</h1>
-                          <p style={{color:'white',marginTop:'-10px',textTransform:'uppercase',fontWeight:'500'}}>O'quvchilar</p>
-                      </div>
+                    </div>
                   </div>
-                  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                      <div>
-                          <BsPersonCheck style={{fontSize:'50px',marginRight:'20px',color:'white'}}/>
+                </Col>
+                </Row>
+              </Container>
+              <div className={styles.cardLink}>
+                <Container>
+                  <Row>
+                    <Col lg={6}>
+                      <div className={styles.imgLink}>
+                     <img  src={
+          data.m_h_oshxona !== null && data !== null
+         ? data.m_h_oshxona
+               : school7
+                    } style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne} >
+                    <h5 style={{color:'white'}}>Maktab oshxonasi</h5>
+                      <p style={{color:'white'}}>
+                     {data.m_h_oshxona_t !== null && data !== null
+                    ? data.m_h_oshxona_t
+                        : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                     katta til okeanida yashaydilar. Dudenmut nomli kichik
+                     daryo.`}
+                       </p>
+                    </div>
                       </div>
-                      <div>
-                          <h1 style={{fontWeight:'700',color:'white',marginTop:'10px'}}>320</h1>
-                          <p style={{color:'white',marginTop:'-10px',textTransform:'uppercase',fontWeight:'500'}}>O'qituvchilar</p>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  src={
+                      data.m_h_sport !== null && data !== null
+                          ? data.m_h_sport
+                            : school8
+                      } 
+                      style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Sport mashg'ulotlari</h5>
+                        <p style={{color:'white'}}>
+                     {data.m_h_sport_t !== null && data !== null
+                          ? data.m_h_sport_t
+                           : `
+                          Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                          katta til okeanida yashaydilar. Dudenmut nomli kichik
+                          daryo.`}
+                      </p>
+                    </div>
                       </div>
-                  </div>
-                  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                      <div>
-                          <BsPersonCheck style={{fontSize:'50px',marginRight:'20px',color:'white'}}/>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  
+                    src={
+                                         data.m_h_musiqa !== null && data !== null
+                                            ? data.m_h_musiqa
+                                           : school9
+                                     }
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}> San'at va madaniyat</h5>
+                     <p style={{color:'white'}}>
+                       {data.m_h_musiqa_t !== null && data !== null
+                         ? data.m_h_musiqa_t
+                           : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                          katta til okeanida yashaydilar. Dudenmut nomli kichik
+                           daryo.`}
+                       </p>
+                    </div>
                       </div>
-                      <div>
-                          <h1 style={{fontWeight:'700',color:'white',marginTop:'10px'}}>1200</h1>
-                          <p style={{color:'white',marginTop:'-10px',textTransform:'uppercase',fontWeight:'500'}}>O'quvchilar</p>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  src={
+                         data.m_h_axborot !== null && data !== null
+                          ? data.m_h_axborot
+                           : school10
+                         }
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Axborot texnologiyalari</h5>
+                        <p style={{color:'white'}}>
+                          {data.m_h_axborot_t !== null && data !== null
+                           ? data.m_h_axborot_t
+                           : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                         katta til okeanida yashaydilar. Dudenmut nomli kichik
+                          daryo.`}
+                        </p>
+                    </div>
                       </div>
-                  </div>
-                  <div style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                      <div>
-                          <BsPersonCheck style={{fontSize:'50px',marginRight:'20px',color:'white'}}/>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img   src={
+                          data.m_h_xavfsizlik !== null && data !== null
+                            ? data.m_h_xavfsizlik
+                            : school11
+                       }
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Xavfsizlik va qo'riqlash</h5>
+                        <p style={{color:'white'}}>
+                        {data.m_h_xavfsizlik_t !== null && data !== null
+                          ? data.m_h_xavfsizlik_t
+                            : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                        katta til okeanida yashaydilar. Dudenmut nomli kichik
+                          daryo.`}
+                       </p>
+                    </div>
                       </div>
-                      <div>
-                          <h1 style={{fontWeight:'700',color:'white',marginTop:'10px'}}>23</h1>
-                          <p style={{color:'white',marginTop:'-10px',textTransform:'uppercase',fontWeight:'500'}}>A'lochilar</p>
+                    </Col>
+                    <Col lg={6}>
+                    <div className={styles.imgLink}>
+                     <img  src={
+                           data.m_h_tibbiyot !== null && data !== null
+                             ? data.m_h_tibbiyot
+                            : school12
+                        } 
+                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    <div className={styles.cardTextOne}>
+                    <h5 style={{color:'white'}}>Sog'lik va salomatlik</h5>
+                        <p style={{color:'white'}}>
+                          {data.m_h_tibbiyot_t !== null && data !== null
+                          ? data.m_h_tibbiyot_t
+                           : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
+                          katta til okeanida yashaydilar. Dudenmut nomli kichik
+                         daryo.`}
+                        </p>
+                    </div>
                       </div>
-                  </div>
+                    </Col>
+                    
+                    
+                  </Row>
+                </Container>
               </div>
+              <Container fluid style={{padding:'0'}}>
+                <Row>
+                <Col lg={12}>
+                  <Row>
+                    <Col lg={6} md={6} sm={12} className={styles.director}>
+                      <Image
+                        src={
+                          data.m_h_o_r !== null && data !== null
+                            ? data.m_h_o_r
+                            : school13
+                        }
+                      />
+                    </Col>
+                    <Col
+                      lg={6}
+                      md={6}
+                      sm={12}
+                      className={styles.director}
+                      style={{ backgroundColor: "#1EB2A6", padding: "10%" }}
+                    >
+                      <p>
+                        {data.m_h_o !== null && data !== null
+                          ? data.m_h_o
+                          : `Bizning maqsadimiz moliyaviy xizmatlar sohasining
+                          markazida bo'lishdir, chunki korxonalar bo'ylab biznes
+                          kengaymoqda.`}
+                      </p>
+                      <h1>
+                        {data.m_h_o_t !== null && data !== null
+                          ? data.m_h_o_t
+                          : "Alisa"}
+                      </h1>
+                    </Col>
+                  </Row>
+                </Col>
+                </Row>
+              </Container>
               <Footer/>
           </div>
       )}
