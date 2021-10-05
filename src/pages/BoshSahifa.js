@@ -532,6 +532,26 @@ export default class BoshSahifa extends Component {
                   <h5 className={styles.tadbirView}>Hamma tadbirlarni ko'rish</h5> 
                  </Link>
              </div>
+
+  <div className={styles.fotolavha}>
+  <Container>
+          <Row>
+            <Col lg={3} md={3} sm={12} xs={12} style={{display:'flex', flexDirection:'column', justifyContent:'space-around'}}><div><h1 style={{textAlign:'left'}}>Bizning rasmlar</h1><p style={{fontSize:'18px', color:'#7B838A'}}>Maktab hayotidan qiziqarli foto lavhalar</p></div><Link to="/gallery/"><h5 className={styles.tadbirView}>Barchasi</h5> </Link></Col>
+            <Col lg={9} md={9} sm={12} xs={12}>
+            <Row>
+            <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto!==null? this.state.school.foto:'rasm':'rasm'} /></Col>
+              <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto1!==null? this.state.school.foto1:'rasm':'rasm'} /></Col>
+              <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto2!==null? this.state.school.foto2:'rasm':'rasm'} /></Col>
+              <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto3!==null? this.state.school.foto3:'rasm':'rasm'} /></Col>
+              <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto4!==null? this.state.school.foto4:'rasm':'rasm'} /></Col>
+              <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto5!==null? this.state.school.foto5:'rasm':'rasm'} /></Col>
+            </Row>
+            </Col>
+          </Row>
+        </Container>  
+  </div>
+
+
              <div className={styles.hamkorlar}>
                  <h2>Bizning hamkorlar</h2>
              <Slider {...settings} style={{padding:'20px'}}>

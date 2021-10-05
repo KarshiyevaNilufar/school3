@@ -106,7 +106,7 @@
   background-color: white;
 }
 .hamkorlar{
-  margin-top: 60px;
+  /* margin-top: 60px; */
   text-align: center;
 }
 .hamkor{
@@ -254,7 +254,30 @@
 .linkHover:hover{
   color:black !important
 }
+.fotolavha{
+  width: 100%;
+  height: 90vh ;
+  display: flex;
+  align-items: center;
+}
+.foto_col{
+  overflow: hidden;
 
+}
+.foto_col img{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 1s, filter 1.5s ease-in-out;
+  transform-origin: center center;
+  filter: brightness(50%);
+}
+
+.foto_col:hover img {
+
+  filter: brightness(100%);
+  transform: scale(1.3);
+}
 @media screen and (max-width:767px) {
   .tadbirCard{
     width: 100% !important;
@@ -298,6 +321,10 @@
     width: 100%;
 
 }
+.fotolavha{
+  height: auto;
+  margin: 30px 0px;
+}
 
 }
 @media screen and (max-width:768px) {
@@ -320,6 +347,11 @@
   .ustozDown{
     height: max-content !important;
   }
+  .fotolavha{
+    height: auto;
+    margin: 30px 0px;
+  }
+  
   
 }
 @media screen and (max-width:992px) {
@@ -352,6 +384,13 @@
       width: 100%;
   
   }
+  .fotolavha{
+    height: auto;
+    margin: 30px 0px;
+  }
+.fotolavha h5{
+  font-size: 20px !important;
+}  
 }
 @media screen and (min-width:992px) {
   .successful{
@@ -423,7 +462,9 @@
   .heading p{
       z-index: 1 !important; 
   }
-
+  .fotolavha h5{
+    font-size: 18px !important;
+  } 
 }
 @media screen and (max-width:1200px) {
   .heading{

@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 .header{
-    width: 100%;
+    width: 100% !important;
     height: 100vh;
-    background-color: #C8C8C8;
+    /* background-color: #C8C8C8; */
     display: flex;
     justify-content: center;
     align-items: center;

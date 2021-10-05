@@ -16,6 +16,7 @@ import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardF
 import { url, user } from "../host/Host";
 import Global from "../host/Global";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 
 
@@ -285,6 +286,10 @@ export default class BoshSahifaDavomi extends Component {
                     </Slider>
                     
                 </div>
+
+
+       
+
         {/* <Container>
           <Row>
             <Col lg={6} md={12} sm={12}>
