@@ -164,13 +164,13 @@ export default class Gallery extends Component {
           
        
            </Carousel>
-           <h1 className={style.foto} style={{marginTop:'100px', }}>Maktab hayotidan qiziqarli foto lavhalar</h1>
-              <div className={style.line}></div>
+           <h1 data-aos="fade-up" className={style.foto} style={{marginTop:'100px', }}>Maktab hayotidan qiziqarli foto lavhalar</h1>
+              <div data-aos="fade-up" className={style.line}></div>
             <MDBContainer style={{marginTop:'100px', }}>
               
         <div className="mdb-lightbox no-margin">
           <MDBRow >
-            <MDBCol md="4" >
+            <MDBCol md="4" data-aos="zoom-in">
             <MDBView >
               <figure>
               
@@ -186,7 +186,7 @@ export default class Gallery extends Component {
               </figure>
               </MDBView>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[1]}
@@ -198,7 +198,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[2]}
@@ -210,7 +210,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[3]}
@@ -222,7 +222,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[4]}
@@ -234,7 +234,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[5]}
@@ -246,7 +246,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[6]}
@@ -258,7 +258,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in"> 
               <figure>
                 <img
                   src={smallImages[7]}
@@ -270,7 +270,7 @@ export default class Gallery extends Component {
                 />
               </figure>
             </MDBCol>
-            <MDBCol md="4">
+            <MDBCol md="4" data-aos="zoom-in">
               <figure>
                 <img
                   src={smallImages[8]}
