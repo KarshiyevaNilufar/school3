@@ -117,7 +117,7 @@ export default class MaktabHayoti extends Component {
       ) : (
           <div style={{overflow:'hidden'}}>
               <Navbar/>
-              <h1 className={style.headerh}>Maktab hayoti</h1>
+              <h1 className={styles.headerh}>Maktab hayoti</h1>
            <Carousel
                    dots={false}
                     autoplay

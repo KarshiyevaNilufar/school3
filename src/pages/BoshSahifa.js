@@ -214,6 +214,7 @@ export default class BoshSahifa extends Component {
     setInterval(() => {
       this.setState({ clock: Clock() });
     }, 1000);
+    this.getPupil()
     this.getEvents();
   }
   render() {

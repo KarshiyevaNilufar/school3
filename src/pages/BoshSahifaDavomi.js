@@ -226,7 +226,7 @@ export default class BoshSahifaDavomi extends Component {
       <div style={{backgroundColor:'white'}}>
         <div className={style.successful}>
                     <h1>Bizning muvaffaqiyatli o'quvchilarimiz</h1>
-                    <Slider {...settings1} style={{padding:'20px'}}>
+                    <div style={{padding:'20px',display:'flex',flexDirection:'row'}}>
                     {this.state.excellent !== [] && this.state.class !== []
                       ? this.state.excellent.map((item,key) => {
                           var pupil = this.setPupils(item.pupil);
@@ -252,7 +252,7 @@ export default class BoshSahifaDavomi extends Component {
                           )
                         })
                       : ""}
-                    </Slider>
+                    </div>
                     
                 </div>
                 <div className={style.successful}>

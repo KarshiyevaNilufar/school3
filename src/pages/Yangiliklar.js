@@ -146,31 +146,12 @@ handlePageClick = (e) => {
       ) : (
      <div style={{backgroundColor:'#F8F8F8',textAlign:'center'}}>
          <Navbar/>
-         <h1 className={styles.headerh}>Yangiliklar</h1>
-            <Carousel
-              dots={false}
-              autoplay
-              effect="fade"
-              style={{ zIndex: "-1", width: "100%" }}
-            >
-              <div>
-                <img
-                  src={
-                    school1
-                  }
-                  className={styles.headerImage}
-
-                />
-              </div>
-              <div>
-                <img                  
-                src={
-                   bg1t
-                  }
-                  className={styles.headerImage}
-                />
-              </div>
-            </Carousel>
+         <div className={styles.header} style={{backgroundImage:`url(${
+                    this.state.news!== null ? this.state.news[0].image
+                      : new1
+                  })`}}>
+              <h1>Maktabimiz so'nggi yangiliklari bilan tanishing</h1>
+           </div>
          <h2 style={{textAlign:'center',backgroundColor:'#F8F8F8',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
           <div className={styles.news}>
           
@@ -178,7 +159,7 @@ handlePageClick = (e) => {
            
        
       </div>
-      <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <div style={{display:'flex',justifyContent:'center',alignItems:'center',backgroundColor:'#ECF0F5'}}>
       <ReactPaginate
          previousLabel={'oldingisi'}
          nextLabel={'keyingisi'}
@@ -196,7 +177,8 @@ handlePageClick = (e) => {
           onOk={this.hideModal}
           onCancel={this.hideModal}
           okText="Yopish"
-          closable={false}
+          closable={true}
+          footer={false}
           maskClosable={true}
         >
         {

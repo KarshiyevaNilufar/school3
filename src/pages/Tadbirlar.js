@@ -176,17 +176,20 @@ handlePageClick = (e) => {
           <div>
             {/* ============Header============== */}
             <Navbar/>
-            <div className={styles.header}>
-            <h1>Tadbirlar</h1>
-         </div>
-         <h2 style={{textAlign:'center',backgroundColor:'#F8F8F8',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
+            <div className={styles.header} style={{backgroundImage:`url(${
+                    this.state.events!== null ? this.state.events[1].image
+                      : new1
+                  })`}}>
+              <h1>Maktabimiz so'nggi tadbirlari bilan tanishing</h1>
+           </div>
+         <h2 style={{textAlign:'center',backgroundColor:'#ECF0F5',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
           <div className={styles.news}>
           
               {weathers}
            
        
       </div>
-         <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+         <div style={{display:'flex',justifyContent:'center',alignItems:'center',backgroundColor:'#ECF0F5'}}>
       <ReactPaginate
          previousLabel={'oldingisi'}
          nextLabel={'keyingisi'}
@@ -204,7 +207,8 @@ handlePageClick = (e) => {
           onOk={this.hideModal}
           onCancel={this.hideModal}
           okText="Yopish"
-          closable={false}
+          closable={true}
+          footer={false}
           maskClosable={true}
         >
         {

@@ -12,9 +12,14 @@
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items:center
+    align-items:center;
+    position: relative;
 }
 .headerh{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     color:white;
     font-size: 55px;
     font-family: Arial, Helvetica, sans-serif;

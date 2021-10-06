@@ -27,7 +27,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    background-color:#F8F8F8;
+    background-color:#ECF0F5;
 
 }
 .loader{
@@ -66,6 +66,9 @@
   @media screen and (max-width: 400px) {
     .headerh {
       display: none !important;
+    }
+    .header h1{
+      font-size:25px !important;
     }
     .alochilar {
       width: 100%;
@@ -132,6 +135,9 @@
         height: 400px;
         position: relative !important;
       }
+      .header h1{
+        font-size: 30px !important;
+      }
   }
   @media screen and (min-width: 769px) {
     .headerImage{
@@ -166,6 +172,9 @@
     }
     .cardText {
       width: 50%;
+    }
+    .header h1{
+      font-size: 30px !important;
     }
   }
   @media screen and (min-width: 993px) {
@@ -202,6 +211,9 @@
     }
     .cardText {
       width: 60%;
+    }
+    .header h1{
+      font-size: 40px !important;
     }
   }
   
