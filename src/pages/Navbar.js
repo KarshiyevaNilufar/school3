@@ -132,6 +132,7 @@ export default class Navbar extends Component {
                     <MenuOutlined onClick={()=>this.openNavbar()} style={{color:'white',marginRight:'0px',fontSize:'25px',cursor:'pointer',zIndex:'11111111'}}/>
                     </div>
                 </div>
+
                 <div  className={this.state.visible? styles.navMobile:styles.noNav}>
                     <ul style={{listStyleType:'none'}}>
 

@@ -677,10 +677,10 @@ export default class BoshSahifa extends Component {
                 </div>
               </div>
     <div style={{display:'flex',flexDirection:'row',justifyContent:'center',marginTop:'30px'}}>
-        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}>Telegram</span>
-        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}>Youtube</span>
-        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}>Facebook</span>
-        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}>Instagram</span>
+        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}><a style={{color:'#1EB2A6'}} target="_blank" href='https://t.me/jizzax_5maktab'>Telegram</a></span>
+        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}><a style={{color:'#1EB2A6'}} target="_blank" href='https://www.youtube.com/channel/UCp_Rf6x5SwyzjSsvF1AHicg'>Youtube</a></span>
+        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}><a style={{color:'#1EB2A6'}} target="_blank" href='https://www.facebook.com/5-ummumtalim-maktabi-101172302348628'>Facebook</a></span>
+        <span className={styles.linkHover} style={{color:'#1EB2A6',fontWeight:'700',marginRight:'10px',cursor:'pointer'}}><a style={{color:'#1EB2A6'}} target="_blank" href='https://www.instagram.com/5_maktabi/'>Instagram</a></span>
 
     </div>
 
