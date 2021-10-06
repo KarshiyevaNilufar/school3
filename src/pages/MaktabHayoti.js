@@ -223,10 +223,10 @@ export default class MaktabHayoti extends Component {
           data.m_h_oshxona !== null && data !== null
          ? data.m_h_oshxona
                : school7
-                    } style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    } style={{width:'60%',height:'100%',objectFit:'cover'}}/>
                     <div className={styles.cardTextOne} >
-                    <h5 style={{color:'white'}}>Maktab oshxonasi</h5>
-                      <p style={{color:'white'}}>
+                    <h5 style={{color:'black',fontFamily:'"Lobster",cursive'}}>Maktab oshxonasi</h5>
+                      <p style={{color:'black',fontFamily:'"Lobster",cursive'}}>
                      {data.m_h_oshxona_t !== null && data !== null
                     ? data.m_h_oshxona_t
                         : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
@@ -243,10 +243,10 @@ export default class MaktabHayoti extends Component {
                           ? data.m_h_sport
                             : school8
                       } 
-                      style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                      style={{width:'60%',height:'100%',objectFit:'cover'}}/>
                     <div className={styles.cardTextOne}>
-                    <h5 style={{color:'white'}}>Sport mashg'ulotlari</h5>
-                        <p style={{color:'white'}}>
+                    <h5 style={{color:'black',fontFamily:'"Lobster",cursive'}}>Sport mashg'ulotlari</h5>
+                        <p style={{color:'black',fontFamily:'"Lobster",cursive'}}>
                      {data.m_h_sport_t !== null && data !== null
                           ? data.m_h_sport_t
                            : `
@@ -265,10 +265,10 @@ export default class MaktabHayoti extends Component {
                                             ? data.m_h_musiqa
                                            : school9
                                      }
-                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    style={{width:'60%',height:'100%',objectFit:'cover'}}/>
                     <div className={styles.cardTextOne}>
-                    <h5 style={{color:'white'}}> San'at va madaniyat</h5>
-                     <p style={{color:'white'}}>
+                    <h5 style={{color:'black',fontFamily:'"Lobster",cursive'}}> San'at va madaniyat</h5>
+                     <p style={{color:'black',fontFamily:'"Lobster",cursive'}}>
                        {data.m_h_musiqa_t !== null && data !== null
                          ? data.m_h_musiqa_t
                            : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
@@ -285,10 +285,10 @@ export default class MaktabHayoti extends Component {
                           ? data.m_h_axborot
                            : school10
                          }
-                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    style={{width:'60%',height:'100%',objectFit:'cover'}}/>
                     <div className={styles.cardTextOne}>
-                    <h5 style={{color:'white'}}>Axborot texnologiyalari</h5>
-                        <p style={{color:'white'}}>
+                    <h5 style={{color:'black',fontFamily:'"Lobster",cursive'}}>Axborot texnologiyalari</h5>
+                        <p style={{color:'black',fontFamily:'"Lobster",cursive'}}>
                           {data.m_h_axborot_t !== null && data !== null
                            ? data.m_h_axborot_t
                            : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
@@ -305,10 +305,10 @@ export default class MaktabHayoti extends Component {
                             ? data.m_h_xavfsizlik
                             : school11
                        }
-                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    style={{width:'60%',height:'100%',objectFit:'cover'}}/>
                     <div className={styles.cardTextOne}>
-                    <h5 style={{color:'white'}}>Xavfsizlik va qo'riqlash</h5>
-                        <p style={{color:'white'}}>
+                    <h5 style={{color:'black',fontFamily:'"Lobster",cursive'}}>Xavfsizlik va qo'riqlash</h5>
+                        <p style={{color:'black',fontFamily:'"Lobster",cursive'}}>
                         {data.m_h_xavfsizlik_t !== null && data !== null
                           ? data.m_h_xavfsizlik_t
                             : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
@@ -325,10 +325,10 @@ export default class MaktabHayoti extends Component {
                              ? data.m_h_tibbiyot
                             : school12
                         } 
-                    style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                    style={{width:'60%',height:'100%',objectFit:'cover'}}/>
                     <div className={styles.cardTextOne}>
-                    <h5 style={{color:'white'}}>Sog'lik va salomatlik</h5>
-                        <p style={{color:'white'}}>
+                    <h5 style={{color:'black',fontFamily:'"Lobster",cursive'}}>Sog'lik va salomatlik</h5>
+                        <p style={{color:'black',fontFamily:'"Lobster",cursive'}}>
                           {data.m_h_tibbiyot_t !== null && data !== null
                           ? data.m_h_tibbiyot_t
                            : `Alohida ular Semantika qirg'og'idagi Bookmarksgroveda,
