@@ -164,15 +164,21 @@
       position: relative;
       border:1px solid #22B4A8;
       margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   .cardTextOne{
-      position: absolute;
-      top: 5%;
-      left: 5%;
       width: 40%;
-      height: 90%;
-      background-color:rgba(30,178,166);
+      background-color:white;
       padding:2%;
+      border-left:1px solid #22B4A8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items:center;
+      text-align: center;
   }
   .director img {
     width: 100% !important;
@@ -180,6 +186,7 @@
     object-fit: cover;
   }
   .director {
+      margin-top: 50px !important;
     text-align: left !important;
   }
   .director p {
@@ -239,6 +246,16 @@
       .ph4{
         font-size: 18px !important;
       }
+      .imgLink{
+          height: max-content;
+      }
+      .imgLink img{
+          width: 100% !important;
+      }
+      .cardTextOne{
+          width: 100%;
+          height: max-content;
+      }
 }
 @media screen and (min-width:567px) {
     .header{
@@ -288,6 +305,9 @@
       }
       .director img {
         height: 500px;
+      }
+      .imgLink{
+          height: 350px;
       }
 }
 @media screen and (min-width:993px) {
@@ -391,5 +411,8 @@
       .director img {
         width: 100% !important;
         height: 100%;
+      }
+      .imgLink{
+          height: 300px;
       }
 }
