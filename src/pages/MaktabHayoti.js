@@ -33,6 +33,8 @@ import Global from "../host/Global";
 import { url, user } from "../host/Host";
 import Navbar from "./Navbar";
 import Footer from './Footer'
+import {RiSunLine} from 'react-icons/ri'
+import {FaUserGraduate} from 'react-icons/fa'
 
 export default class MaktabHayoti extends Component {
   state = {
@@ -135,19 +137,19 @@ export default class MaktabHayoti extends Component {
                         nostografik hayot.`}
                        </p>
                               <div style={{marginTop:'50px'}} className={styles.card}>
-                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
+                                  <div><RiSunLine style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
                                   <div>
                                       <h4>Navruz bayrami</h4>
                                   </div>
                               </div>
                               <div className={styles.card}>
-                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
+                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'40px',marginRight:'70px'}}/></div>
                                   <div>
                                       <h4>Mustaqillik kuni</h4>
                                   </div>
                               </div>
                               <div className={styles.card}>
-                                  <div><BsFillAwardFill style={{color:'#22B4A8',fontSize:'50px',marginRight:'70px'}}/></div>
+                                  <div><FaUserGraduate style={{color:'#22B4A8',fontSize:'40px',marginRight:'70px',marginLeft:'-10px'}}/></div>
                                   <div>
                                       <h4>Bitiruv tadbiri</h4>
                                   </div>

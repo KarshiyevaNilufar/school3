@@ -6,7 +6,7 @@ import new2 from "../img/new2.jpg";
 import new3 from "../img/new3.jpg";
 import new4 from "../img/new4.jpg";
 import styles from "../css/yangiliklar.module.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col ,Image} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -23,6 +23,10 @@ import school1 from '../img/school1.jpg'
 import{url} from '../host/Host'
 import Global from "../host/Global";
 import { Modal } from 'antd';
+import bg1t from '../img/prezident.jpg'
+import { Carousel } from "antd";
+
+
 
 export default class Yangiliklar extends Component {
   constructor(props) {
@@ -142,9 +146,31 @@ handlePageClick = (e) => {
       ) : (
      <div style={{backgroundColor:'#F8F8F8',textAlign:'center'}}>
          <Navbar/>
-         <div className={styles.header}>
-            <h1>Yangiliklar</h1>
-         </div>
+         <h1 className={styles.headerh}>Yangiliklar</h1>
+            <Carousel
+              dots={false}
+              autoplay
+              effect="fade"
+              style={{ zIndex: "-1", width: "100%" }}
+            >
+              <div>
+                <img
+                  src={
+                    school1
+                  }
+                  className={styles.headerImage}
+
+                />
+              </div>
+              <div>
+                <img                  
+                src={
+                   bg1t
+                  }
+                  className={styles.headerImage}
+                />
+              </div>
+            </Carousel>
          <h2 style={{textAlign:'center',backgroundColor:'#F8F8F8',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
           <div className={styles.news}>
           

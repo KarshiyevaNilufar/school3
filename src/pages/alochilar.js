@@ -158,7 +158,7 @@ export default class Alochilar extends Component {
                 />
               </div>
             </Carousel>
-
+ 
             <div className={style.alochilar}>
               <Container>
                 <Row>
