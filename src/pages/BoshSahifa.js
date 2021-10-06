@@ -390,7 +390,7 @@ export default class BoshSahifa extends Component {
           <div style={{overflow:'hidden',zIndex:'1'}}>
               <Navbar/>
               <div className={styles.header}>
-              <h1 className={style.headerh}>Xush kelibsiz</h1>
+              <h1 className={styles.headerh}>Xush kelibsiz</h1>
             
             <Carousel
                     autoplay
