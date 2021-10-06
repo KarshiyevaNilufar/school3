@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "../css/maktabHayoti.module.css";
+import style from "../css/qabul.module.css";
 import "../css/maktahayotiAli.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,6 +19,9 @@ import school10 from "../img/school10.jpg";
 import school11 from "../img/school11.jpg";
 import school12 from "../img/school12.jpg";
 import school13 from "../img/school13.jpg";
+import bg1t from "../img/xorazim1.jpg";
+import bg2t from "../img/xorazim2.jpg";
+import { Carousel } from "antd";
 import { Link } from "react-router-dom";
 import { DownCircleOutlined } from "@ant-design/icons";
 import { BiStop, BiRightArrowAlt } from "react-icons/bi";
@@ -113,9 +117,40 @@ export default class MaktabHayoti extends Component {
       ) : (
           <div style={{overflow:'hidden'}}>
               <Navbar/>
-              <div className={styles.header}>
-               <h1>Maktab hayoti</h1>
-              </div>
+              <h1 className={style.headerh}>Maktab hayoti</h1>
+           <Carousel
+                   dots={false}
+                    autoplay
+                    effect="fade"
+                    style={{ zIndex: "-1" ,width:'100%'}}
+                 
+                  >
+           <div>
+           <img  src={
+                    data !== null && data.m_h_h2 !== null
+                      ? data.m_h_h2
+                      : school1
+                  }
+                  className={style.headerImage}
+                  />
+             </div>   
+             <div>
+             <img
+                  src={
+                    data !== null && data.m_h_h1 !== null
+                      ? data.m_h_h1
+                      : school1
+                  }
+                  className={style.headerImage}
+                />
+               </div>  
+               <div className="carg_img">
+                      <img src={bg1t} className={style.headerImage}/>
+                    </div>    
+               <div className="carg_img">
+                      <img src={bg2t} className={style.headerImage}/>
+                    </div>    
+           </Carousel>
               <div className={styles.benefits}>
                   <Container>
                       <Row>
