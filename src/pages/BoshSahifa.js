@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "../css/BoshSahifa.module.css";
+import style from "../css/qabul.module.css";
 import { Button, Container,Row, Col } from "react-bootstrap";
 import gerb from "../img/pngegg.png";
 import rasm41 from "../img/1.jpg";
@@ -13,6 +14,9 @@ import flagRU from "../img/flagRU.png";
 import bg1t from "../img/bg1t.jpg";
 import bg2t from "../img/bg2t.jpg";
 import bg3t from "../img/bg3t.jpg";
+import headerT from "../img/priscilla-du-preez-XkKCui44iM0-unsplash.jpg";
+import bg10t from "../img/prezident.jpg";
+import bg4t from "../img/p2.jpg";
 import ustoz1 from "../img/ustoz1.jpg";
 import ustoz2 from "../img/ustoz2.jpg";
 import ustoz3 from "../img/oqituvchi.jpg";
@@ -46,6 +50,7 @@ import her6 from "../img/h6.png";
 import { getPupil } from "../host/Config";
 import { Form, Input } from 'antd';
 import { YMaps, Map} from 'react-yandex-maps';
+import { Tooltip, Carousel } from "antd";
 
 const { TextArea } = Input;
 const layout = {
@@ -385,8 +390,44 @@ export default class BoshSahifa extends Component {
           <div style={{overflow:'hidden',zIndex:'1'}}>
               <Navbar/>
               <div className={styles.header}>
+              <h1 className={style.headerh}>Xush kelibsiz</h1>
+            
+            <Carousel
+                    autoplay
+                    effect="fade"
+                    style={{ zIndex: "-234" ,width:'100%',height:'100vh'}}
+                    {...props}
+                  >
+                    {/* <div className="carg_img">
+                      <img src={bg1t} style={{width:'100%',height:'100vh',objectFit:'cover'}}/>
+                    </div> */}
+                    <div className="carg_img">
+                      <img
+                        src={
+                          this.state.school !== null
+                             ? this.state.school.b_r1 !== null
+                               ? this.state.school.b_r1
+                               : headerT
+                             : headerT
+                        }
+                        className={style.headerImage}
+                      />
+                    </div>
+                    {/* <div className="carg_img">
+                      <img src={bg1t} className={style.headerImage}/>
+                    </div> */}
                  
-              </div>
+                    <div className="carg_img">
+                      <img src={bg4t} className={style.headerImage}/>
+                    </div>
+             
+                    <div className="carg_img">
+                      <img src={bg10t} className={style.headerImage}/>
+                    </div>
+                  </Carousel>
+                  </div>
+
+
               <div className={styles.video}>
                <Container>
                    <Row>
