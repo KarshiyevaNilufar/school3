@@ -12,7 +12,8 @@
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items:center
+    align-items:center;
+    background-color:#ECF0F5
 }
 .header h1{
     color:white;

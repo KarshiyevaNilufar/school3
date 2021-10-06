@@ -106,7 +106,7 @@ handlePageClick = (e) => {
           this.setState({
             events: res.data,
             loader: false,
-            pages: Math.floor(res.data.length / this.state.perPage)
+            pages: Math.ceil(res.data.length / this.state.perPage)
           });
         } else {
           this.setState({
@@ -182,7 +182,7 @@ handlePageClick = (e) => {
                   })`}}>
               <h1>Maktabimiz so'nggi tadbirlari bilan tanishing</h1>
            </div>
-         <h2 style={{textAlign:'center',backgroundColor:'#ECF0F5',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
+         <h2 style={{textAlign:'center',backgroundColor:'#ECF0F5',marginBottom:'0',margin:'20px 0'}}>So'nngi yangiliklar</h2>
           <div className={styles.news}>
           
               {weathers}

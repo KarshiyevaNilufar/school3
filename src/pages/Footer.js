@@ -84,10 +84,10 @@ export default class Footer extends Component {
                                     <p style={{textTransform:'uppercase', fontSize:'13px', fontWeight:'600', color:'#1EB2A6'}}>{this.state.data !== null ? this.state.data.type : ""}</p>
                                     <p style={{color:'#999999', fontSize:'16px', marginTop:'40px'}}>Sifatli bilim va yuqori natijalarga bizning maktab bilan erishishingiz mumkin!</p>
                                     <ul className={styles.social_media}>
-                                        <li><div><a target="_blank" href='https://t.me/Xorazm_5_maktab'><RiTelegramFill style={{fontSize:'20px'}}/></a></div></li>
-                                        <li><div><a target="_blank" href='https://www.facebook.com/5-sonli-maktab-283432626789189/?ref=pages_you_manage'><CgFacebook/></a></div></li>
-                                        <li><div><a target="_blank" href='https://www.instagram.com/5ummumtalimmaktabi/'><FaInstagram/></a></div></li>
-                                        <li><div><a target="_blank" href='https://www.youtube.com/channel/UCTU9AVjpeZQLSSh3rlwTpDw'><FaYoutube/></a></div></li>
+                                        <li><div><a target="_blank" href='https://t.me/jizzax_5maktab'><RiTelegramFill style={{fontSize:'20px'}}/></a></div></li>
+                                        <li><div><a target="_blank" href='https://www.facebook.com/5-ummumtalim-maktabi-101172302348628'><CgFacebook/></a></div></li>
+                                        <li><div><a target="_blank" href='https://www.instagram.com/5_maktabi/'><FaInstagram/></a></div></li>
+                                        <li><div><a target="_blank" href='https://www.youtube.com/channel/UCp_Rf6x5SwyzjSsvF1AHicg'><FaYoutube/></a></div></li>
                                     </ul>
                                  </div>
                              </Col>
@@ -183,7 +183,12 @@ export default class Footer extends Component {
                                                 <div>
                                                     <a href={`mailto: ${
                     this.state.data !== null ? this.state.data.email : "#"
-                  }`} style={{color:'#666A6F', textDecoration:'none'}}> {this.state.data !== null ? this.state.data.email : "#"}</a></div></li>
+                  }`} style={{color:'#666A6F', textDecoration:'none'}}> 
+                  {/* {this.state.data !== null ? this.state.data.email 
+                  : */}
+                   5maktabjizzax@gmail.com
+                   {/* } */}
+                  </a></div></li>
                                         </ul>
                                     </div>
                                  </div>

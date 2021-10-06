@@ -81,7 +81,7 @@ handlePageClick = (e) => {
           this.setState({
             news: res.data,
             loader: false,
-            pages: Math.floor(res.data.length / this.state.perPage)
+            pages: Math.ceil(res.data.length / this.state.perPage)
           });
         } else {
           this.setState({
@@ -144,7 +144,7 @@ handlePageClick = (e) => {
           <div><p>Sayt test rejimida ishlamoqda</p></div>
           </div>  
       ) : (
-     <div style={{backgroundColor:'#F8F8F8',textAlign:'center'}}>
+     <div style={{backgroundColor:'#ECF0F5',textAlign:'center'}}>
          <Navbar/>
          <div className={styles.header} style={{backgroundImage:`url(${
                     this.state.news!== null ? this.state.news[0].image
@@ -152,7 +152,7 @@ handlePageClick = (e) => {
                   })`}}>
               <h1>Maktabimiz so'nggi yangiliklari bilan tanishing</h1>
            </div>
-         <h2 style={{textAlign:'center',backgroundColor:'#F8F8F8',marginBottom:'0',marginTop:'20px'}}>So'nngi yangiliklar</h2>
+         <h2 style={{textAlign:'center',backgroundColor:'#ECF0F5',marginBottom:'0',margin:'20px 0'}}>So'nngi yangiliklar</h2>
           <div className={styles.news}>
           
               {weathers}

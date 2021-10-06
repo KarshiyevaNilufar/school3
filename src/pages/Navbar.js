@@ -91,16 +91,16 @@ export default class Navbar extends Component {
                     </div>
                     <div className={styles.socialMedia}>
                     <div className={styles.icons} style={{curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <a target="_blank" href="https://www.facebook.com/5-sonli-maktab-283432626789189/?ref=pages_you_manage"><FaFacebookF style={{color:'#1EB2A6'}}/></a>
+                         <a target="_blank" href="https://www.facebook.com/5-ummumtalim-maktabi-101172302348628"><FaFacebookF style={{color:'#1EB2A6'}}/></a>
                      </div>
                      <div className={styles.icons}  style={{ curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <a target="_blank" href="https://www.instagram.com/5ummumtalimmaktabi/"><FaInstagram style={{color:'#1EB2A6'}}/></a>
+                         <a target="_blank" href="https://www.instagram.com/5_maktabi/"><FaInstagram style={{color:'#1EB2A6'}}/></a>
                      </div>
                      <div className={styles.icons}  style={{curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                        <a target="_blank" href="https://t.me/Xorazm_5_maktab"><FaTelegramPlane style={{color:'#1EB2A6'}}/></a>
+                        <a target="_blank" href="https://t.me/jizzax_5maktab"><FaTelegramPlane style={{color:'#1EB2A6'}}/></a>
                      </div>
                      <div className={styles.icons}  style={{curspor:'pointer',width:'40px',height:'40px',borderRadius:'50%',backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'5px'}}>
-                         <a target="_blank" href="https://www.youtube.com/channel/UCTU9AVjpeZQLSSh3rlwTpDw"><FaYoutube style={{color:'#1EB2A6'}}/></a>
+                         <a target="_blank" href="https://www.youtube.com/channel/UCp_Rf6x5SwyzjSsvF1AHicg"><FaYoutube style={{color:'#1EB2A6'}}/></a>
                      </div>
                     </div>
                 </div>
