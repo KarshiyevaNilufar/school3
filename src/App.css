@@ -463,3 +463,12 @@
             height: 250px !important;
         }
     }
+
+    .eslatma{
+      font-size:26px; 
+      text-align:center;
+      color:#1EB2A6;
+      padding:20px;
+      margin-bottom: 30px;
+      margin-top:-40px;
+    }

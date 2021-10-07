@@ -71,14 +71,14 @@ export default class Navbar extends Component {
                      <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginRight:'30px'}}>
                          <div><BsClock style={{fontSize:'35px',color:'white'}}/></div>
                          <div style={{marginLeft:'10px'}}>
-                             <p style={{fontSize:'17px',color:'white',marginTop:'10px'}}>Dushanba-juma</p>
-                             <p style={{fontSize:'18px',color:'white',fontWeight:'600',marginTop:'-12px'}}>8:00 dan 20:00 gacha</p>
+                             <p style={{fontSize:'17px',color:'white',marginTop:'10px'}}>Dushanba-shanba</p>
+                             <p style={{fontSize:'18px',color:'white',fontWeight:'600',marginTop:'-12px'}}>8:00 dan 17:00 gacha</p>
                          </div>
                      </div>
                      <div  style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginRight:'50px'}}>
                          <div><FiPhone style={{fontSize:'35px',color:'white'}}/></div>
                          <div style={{marginLeft:'10px'}}>
-                             <p style={{fontSize:'17px',color:'white',marginTop:'10px'}}>Qo'ng'iroq qiling</p>
+                             <p style={{fontSize:'17px',color:'white',marginTop:'10px'}}>Ishonch telefoni</p>
                              <p style={{fontSize:'18px',color:'white',fontWeight:'600',marginTop:'-12px'}}>+998977902801
                                  {/* {
                       this.state.school !== null

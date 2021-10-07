@@ -6,11 +6,12 @@
 .header{
   width: 100%;
   height: 100vh;
-  z-index: 1 !important;
+  z-index: 1 ;
   text-align: center;
   position: relative;
 
 }
+
 .headerh{
   position:absolute;
   top: 70%;
@@ -25,19 +26,19 @@
   font-weight: 800;
 }
 .tadbirlar{
-  text-align: center !important;
+  text-align: center ;
   padding-top: 100px;
-  padding-right: 20px !important;
-  padding-left: 20px !important;
+  padding-right: 20px ;
+  padding-left: 20px ;
 }
 .tadbirCard{
-  width: 31% !important;
+  width: 31% ;
   height: max-content;
-  margin:1% !important;
+  margin:1% ;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 5px;
   background-color: white;
-  margin-top: 60px !important;
+  margin-top: 60px ;
   margin-bottom: 20px;
 }
 .video{
@@ -112,20 +113,21 @@
   text-align: center;
 }
 .hamkor{
-  display: flex !important;
-  justify-content: center !important;
-  align-items:center !important;
-  flex-direction: column !important;
-  padding: 20px !important;
+  display: flex ;
+  justify-content: center ;
+  align-items:center ;
+  flex-direction: column ;
+  padding: 20px ;
 }
 .hamkor p{
   color:rgba(0, 0, 0, 0.6)
 }
+
 .imgHamkor{
   width: 100px;
   height: 100px;
   border:1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50% !important;
+  border-radius: 50% ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +146,7 @@
   background-color:#1EB2A6
 }
 .form{
-  padding:30px !important;
+  padding:30px ;
 }
 .form h2{
   display: inline-block;
@@ -164,19 +166,20 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 50px !important;
+  margin-top: 50px ;
 }
 .address div{
-  width: 20% !important;
+  width: 20% ;
 }
 .video1{
    width: 100%;
-   height: 440px !important;
+   height: 440px ;
    padding-top: 70px;
 }
 .buttoncha{
+ 
   display: block;
-  margin:20px auto !important;
+  margin:20px auto;
   padding:10px 30px;
   background-color:#1EB2A6;
   color:white;
@@ -223,7 +226,7 @@
   background-color:#1EB2A6;
 }
 .slider{
-  width: 340px !important;
+  width: 340px ;
   height: 300px;
   margin:20px 20px;
   background-color:white;
@@ -239,28 +242,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column !important;
+  flex-direction: column ;
   color: #1EB2A6;
   font-size: 25px;
 }
 .ustozCard{
-  width: 90% !important;
+  width: 90% ;
   display:flex;
-  flex-direction: column !important;
+  flex-direction: column ;
 
 }
 .card{
-  display: flex !important;
-  flex-direction: row !important;
-  margin-top: 50px !important;
-  border-radius: 5px !important;
-  border:1px solid #1EB2A6 !important;
-  width: 100% !important;
-  height: 200px !important;
+  display: flex ;
+  flex-direction: row ;
+  margin-top: 50px ;
+  border-radius: 5px ;
+  border:1px solid #1EB2A6 ;
+  width: 100% ;
+  height: 200px ;
 
 }
 .linkHover:hover{
-  color:black !important
+  color:black 
 }
 .fotolavha{
   width: 100%;
@@ -288,18 +291,24 @@
 }
 @media screen and (max-width:767px) {
   .tadbirCard{
-    width: 100% !important;
+    width: 100% ;
   }
+  .headerh{display: none ;}
 }
 @media screen and (min-width:768px) {
   .tadbirCard{
-    height: 450px !important;
+    height: 450px ;
   }
 }
-
+.oquvchi{
+  display:flex;
+  flex-direction:row;
+  padding:30px; 
+  justify-content:space-around;
+}
 @media screen and (max-width:400px) {
   .counter div{
-      width: 100% !important;
+      width: 100% ;
   }
   .successful{
       text-align: center;
@@ -312,12 +321,12 @@
       line-height: 1.6;
   }
   .slider{
-      width: 90% !important;
+      width: 90% ;
       height: max-content;
       margin:20px 20px;  
   }
   .ustozDown{
-    height: max-content !important;
+    height: max-content ;
   }
   .card{
     display: flex;
@@ -347,13 +356,13 @@
       line-height: 1.6;
   }
   .slider{
-      width: 90% !important;
+      width: 90% ;
       height: max-content;
       margin:20px 20px; 
       padding: 20px; 
   }
   .ustozDown{
-    height: max-content !important;
+    height: max-content ;
   }
   .fotolavha{
     height: auto;
@@ -374,13 +383,13 @@
       line-height: 1.6;
   }
   .slider{
-      width: 90% !important;
+      width: 90% ;
       height: max-content;
       margin:20px 20px; 
       padding: 20px; 
   }
   .ustozDown{
-    height: 250px !important;
+    height: 250px ;
   }
   .card{
       display: flex;
@@ -397,7 +406,7 @@
     margin: 30px 0px;
   }
 .fotolavha h5{
-  font-size: 20px !important;
+  font-size: 20px ;
 }  
 }
 @media screen and (min-width:992px) {
@@ -412,13 +421,13 @@
       line-height: 1.6;
   }
   .slider{
-      width: 90% !important;
+      width: 90% ;
       height: max-content;
       margin:20px 20px; 
       padding: 20px; 
   }
   .ustozDown{
-    height: 250px !important;
+    height: 250px ;
   }
   .card{
     display: flex;
@@ -433,12 +442,12 @@
 }
 
 
-@media screen and (max-width:400px) {
+@media(max-width:400px) {
   .heading{
   width: 90%;
   }
   .heading p{
-      z-index: 1 !important; 
+      z-index: 1 ; 
   }
   .contact{
       width: 90%;
@@ -447,19 +456,28 @@
   .address{
       display: flex;
       flex-direction: column;
-      margin-top: 50px !important;
+      margin-top: 50px ;
   }
   .address div{
-      width: 100% !important;
+      width: 100% ;
   }
+  .oquvchi{
+    display: block;
+  }
+  
 
 }
 @media screen and (max-width:768px) {
+  .header{height:40vh }
   .heading{
   width: 90%;
   }
   .heading p{
-      z-index: 1 !important; 
+      z-index: 1 ; 
+  }
+  .oquvchi{
+    margin:auto;
+    display: block;
   }
 
 }
@@ -468,10 +486,10 @@
   width: 90%;
   }
   .heading p{
-      z-index: 1 !important; 
+      z-index: 1 ; 
   }
   .fotolavha h5{
-    font-size: 18px !important;
+    font-size: 18px ;
   } 
 }
 @media screen and (max-width:1200px) {
@@ -479,7 +497,7 @@
   width: 350px;
   }
   .heading p{
-      z-index: 1 !important; 
+      z-index: 1 ; 
   }
 
 }

@@ -431,6 +431,7 @@ export default class BoshSahifa extends Component {
 
               <div className={styles.video}>
                <Container>
+                 <p></p>
                    <Row>
                        <Col lg={6} >
                            <h2>Maktabga video sayohat</h2>
@@ -495,11 +496,11 @@ export default class BoshSahifa extends Component {
                           var classes = this.echoClasses(pupil.clas);
                           return (
                             <div className={styles.slider}>
-                         <div style={{display:'flex',flexDirection:'row',padding:'30px', justifyContent:'space-around'}} className={styles.oquvchi}>
-                             <div style={{width:'80px'}}>
+                         <div style={{display:'flex',flexDirection:'row',padding:'30px', justifyContent:'space-around'}} >
+                             <div style={{width:'110px'}}>
                                  <img src={
                                     pupil.image !== null ? pupil.image : school1}
-                                    style={{width:'80px',height:'80px',objectFit:'cover',borderRadius:'50%'}} />
+                                    style={{width:'110px',height:'110px',objectFit:'cover',borderRadius:'50%'}} />
                              </div>
                              <div style={{marginLeft:'10px'}}>
                                  <h4 style={{textAlign:'center'}} style={{marginTop:'10px'}}>{pupil.full_name}</h4>
