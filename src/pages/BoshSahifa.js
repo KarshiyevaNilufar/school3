@@ -496,7 +496,7 @@ export default class BoshSahifa extends Component {
                           var classes = this.echoClasses(pupil.clas);
                           return (
                             <div className={styles.slider}>
-                         <div style={{display:'flex',flexDirection:'row',padding:'30px', justifyContent:'space-around'}} >
+                         <div className={styles.opt} >
                              <div style={{width:'110px'}}>
                                  <img src={
                                     pupil.image !== null ? pupil.image : school1}
@@ -518,7 +518,7 @@ export default class BoshSahifa extends Component {
                     </Slider>
                     
                 </div>
-                <div className={styles.successful}>
+                <div className={styles.successful} style={{marginTop:'-40px'}}>
                     <h1>O'qituvchilar doskasi</h1>
                     <Slider {...settings2} style={{padding:'20px'}}>
                    {
@@ -547,7 +547,7 @@ export default class BoshSahifa extends Component {
                     </Slider>
                     
                 </div>
-             <div className={styles.tadbirlar}>
+             <div className={styles.tadbirlar}  style={{marginTop:'-80px'}}>
              <h2>Maktab tadbirlari</h2>
           <Container>
           <Row style={{ textAlign: "center" }}>
@@ -580,7 +580,7 @@ export default class BoshSahifa extends Component {
   <div className={styles.fotolavha}>
   <Container>
           <Row>
-            <Col lg={3} md={3} sm={12} xs={12} style={{display:'flex', flexDirection:'column', justifyContent:'space-around'}}><div><h1 style={{textAlign:'left'}}>Bizning rasmlar</h1><p style={{fontSize:'18px', color:'#7B838A'}}>Maktab hayotidan qiziqarli foto lavhalar</p></div><Link to="/gallery/"><h5 className={styles.tadbirView}>Barchasi</h5> </Link></Col>
+            <Col lg={3} md={3} sm={12} xs={12} style={{display:'flex', flexDirection:'column', justifyContent:'space-around'}}><div><h1 style={{textAlign:'left'}}>Bizning rasmlar</h1><p style={{fontSize:'18px', color:'#7B838A'}}>Maktab hayotidan qiziqarli foto lavhalar</p></div><Link to="/gallery/"><h5 className={styles.tadbirView}>Barchasini ko'rish</h5> </Link></Col>
             <Col lg={9} md={9} sm={12} xs={12}>
             <Row>
             <Col style={{padding:'10px 20px '}} className={styles.foto_col} lg={4} md={4} sm={12} xs={12}><img style={{width:"100%", height:'100%'}} src={this.state.school!==null?this.state.school.foto!==null? this.state.school.foto:'rasm':'rasm'} /></Col>
