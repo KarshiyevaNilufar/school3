@@ -49,7 +49,17 @@ import her5 from "../img/h5.png";
 import her6 from "../img/h6.png";
 import { getPupil } from "../host/Config";
 import { Form, Input } from 'antd';
-import { YMaps, Map} from 'react-yandex-maps';
+import {
+  Clusterer,
+  GeolocationControl,
+  Map,
+  Placemark,
+  RouteButton,
+  TrafficControl,
+  TypeSelector,
+  YMaps,
+  ZoomControl,
+} from "react-yandex-maps";
 import { Tooltip, Carousel } from "antd";
 
 const { TextArea } = Input;
@@ -656,7 +666,31 @@ export default class BoshSahifa extends Component {
                          <YMaps>
   <div style={{width:'100%',height:'100%',boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
    
-    <Map width='100%' height='100%' defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
+    <Map width='100%' height='100%' defaultState={{ center: [40.132084, 67.822463], zoom: 13 }} >
+    <Clusterer
+                      options={{
+                        groupByCoordinates: false,
+                      }}
+                    >
+                      <Placemark
+                        key={-1}
+                        geometry={[40.132084, 67.822463]}
+                        options={{
+                          iconLayout: "default#image",
+                        }}
+                        properties={{
+                          hintContent: `<h6><b className="personStyle">33 - maktab</b></h6>`,
+                        }}
+                        modules={["geoObject.addon.hint"]}
+                      />
+                    </Clusterer>
+
+                    <GeolocationControl options={{ float: "left" }} />
+
+                    <RouteButton options={{ float: "right" }} />
+                    <ZoomControl options={{ float: "left" }} />
+                  
+    </Map>
   </div>
 </YMaps>
                          </Col>
